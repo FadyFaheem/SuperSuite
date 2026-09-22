@@ -1,163 +1,56 @@
-let fs = require('fs');
-let esprima = require('esprima');
-let estraverse = require('estraverse');
-let vscode = require('vscode');
+﻿'use strict';
 
-function getCoords(fileContent) {
-    var tree = esprima.parse(fileContent, { sourceType: 'module', tokens: true, range: true, loc: true });
+const { findModule, buildModuleEdits } = require('../editor/modules');
 
-    var coords = {
-        depPath: null,
-        depParam: null
-    };
-
-    estraverse.traverse(tree, {
-        enter: function (node, parent) {
-
-            if (parent && parent.type == 'CallExpression' && parent.callee.name == 'define') {
-                if (node.type == 'ArrayExpression') {
-                    coords.depPath = {
-                        start : {
-                            row: node.loc.start.line,
-                            col: node.loc.start.column
-                        },
-                        end : {
-                            row: node.loc.end.line,
-                            col: node.loc.end.column
-                        },
-                        range: [node.range[0], node.range[1]]
-                    };
-                }
-
-                if (node.type == 'ArrowFunctionExpression' || node.type == 'FunctionExpression') {
-                    coords.depParam = {
-                        start : {
-                            row: node.loc.start.line,
-                            col: node.loc.start.column
-                        },
-                        end : {
-                            row: node.body.loc.start.line,
-                            col: node.body.loc.start.column
-                        },
-                        range: [node.range[0], node.body.range[0]]
-                    };
-                }
-            }
-        }
+// Compatibility helpers for extensions of the original project. New code should
+// use editor.addModuleToEditor(), which applies both changes as a single undo step.
+function getCoords(source) {
+    const { dependencies, factory } = findModule(source);
+    const coords = node => ({
+        start: { row: node.loc.start.line, col: node.loc.start.column },
+        end: { row: node.loc.end.line, col: node.loc.end.column },
+        range: [node.start, node.end]
     });
-
-    return coords;
+    const depParam = coords(factory);
+    depParam.end = { row: factory.body.loc.start.line, col: factory.body.loc.start.column };
+    depParam.range[1] = factory.body.start;
+    return { depPath: dependencies ? coords(dependencies) : null, depParam };
 }
 
-function createPosition(row, col) {
-    return new vscode.Position(row, col);
+function getUpdatedFunctionParams(alias, header) {
+    // Run the same parser-based edit logic even for legacy header-only callers.
+    const params = header.match(/\(([^)]*)\)/);
+    const names = params ? params[1].split(',').map(value => value.trim()).filter(Boolean) : [header.split('=>')[0].trim()];
+    const paths = names.map((_, index) => "'legacy/" + index + "'").join(', ');
+    const prefix = 'define([' + paths + '], ';
+    const source = prefix + header + '{});';
+    const result = buildModuleEdits(source, 'legacy/new', alias);
+    const edit = result.edits.find(value => value.start >= prefix.length);
+    if (!edit) return header;
+    return header.slice(0, edit.start - prefix.length) + edit.text + header.slice(edit.end - prefix.length);
 }
 
-function rangeFactory(start, end) {
-    return new vscode.Range(start, end);
+function getUpdatedDepPath(modulePath, oldString) {
+    const array = oldString || '[]';
+    const acorn = require('acorn');
+    const parsed = acorn.parseExpressionAt(array, 0, { ecmaVersion: 'latest' });
+    if (parsed.type !== 'ArrayExpression') throw new Error('Expected a module dependency array.');
+    const aliases = parsed.elements.map((_, index) => 'dependency' + index).join(', ');
+    const prefix = 'define(';
+    const source = prefix + array + ', function (' + aliases + ') {});';
+    const result = buildModuleEdits(source, modulePath, 'newDependency');
+    const edit = result.edits.find(value => value.start < prefix.length + array.length);
+    return edit ? array.slice(0, edit.start - prefix.length) + edit.text + array.slice(edit.end - prefix.length) : array;
 }
 
-function textEditFactory(range, content) {
-    return new vscode.TextEdit(range, content);
+function createPosition(row, col) { return new (require('vscode').Position)(row, col); }
+async function editCurrentDocument(editor, coords, content) {
+    const vscode = require('vscode');
+    const range = new vscode.Range(coords.start.line, coords.start.char, coords.end.line, coords.end.char);
+    const applied = await editor.edit(builder => builder.replace(range, content));
+    if (!applied) throw new Error('VS Code could not apply the edit.');
 }
-
-function editFactory (coords, content){
-    var start = createPosition(coords.start.line, coords.start.char);
-    var end = createPosition(coords.end.line, coords.end.char);
-    var range = rangeFactory(start, end);
-    
-    return textEditFactory(range, content);
-}
-
-function workspaceEditFactory() {
-    return new vscode.WorkspaceEdit();
-}
-
-function setEditFactory(uri, coords, content) {
-    var workspaceEdit = workspaceEditFactory();
-    var edit = editFactory(coords, content);
-
-    workspaceEdit.set(uri, [edit]);
-    return workspaceEdit;
-}
-
-function getDocument (vsEditor) {
-    return typeof vsEditor._documentData !== 'undefined' ? vsEditor._documentData : vsEditor._document
-}
-
-async function editCurrentDocument(vsEditor, coords, content){
-    var vsDocument = getDocument(vsEditor);
-    var edit = setEditFactory(vsDocument._uri, coords, content);
-    await vscode.workspace.applyEdit(edit);
-}
-
-function replaceStringRange(source, replacement, from, to) {
-    return source.substring(0, from) + replacement + source.substring(to);
-}
-
-function getUpdatedFunctionParams(newDependecyParam, oldString) {
-    let newString = oldString;
-    
-    if (oldString.indexOf('function') != -1) {
-        let fromIndex = oldString.indexOf('(') + 1;
-        let toIndex = oldString.indexOf(')');
-        let oldParams = oldString.substring(fromIndex, toIndex);
-        let newParams = oldParams.trim();
-        newParams = newParams.length > 0 ? newParams + ', ' + newDependecyParam : newDependecyParam;
-        
-        newString = replaceStringRange(oldString, newParams, fromIndex, toIndex);
-    }
-    if (oldString.indexOf('=>') != -1) {
-        let params = oldString.split("=>")[0].trim();
-
-        if (params.indexOf('(') == -1) { // "param => "
-            newString = '(' + params + ', ' + newDependecyParam + ') => ';
-        } else {
-            let fromIndex = oldString.indexOf('(') + 1;
-            let toIndex = oldString.indexOf(')');
-            let oldParams = oldString.substring(fromIndex, toIndex);
-            let newParams = oldParams.trim();
-            newParams = newParams.length > 0 ? newParams + ', ' + newDependecyParam : newDependecyParam;
-        
-            newString = replaceStringRange(oldString, newParams, fromIndex, toIndex);
-        }
-    }
-
-    return newString;
-}
-
-function getUpdatedDepPath(newDependecyPath, oldString) {
-    if (oldString) {
-        let fromIndex = oldString.indexOf('[') + 1;
-        let toIndex = oldString.indexOf(']');
-        let oldPaths = oldString.substring(fromIndex, toIndex);
-        let newPaths = oldPaths.trim();
-        newPaths = newPaths.length > 0 ? newPaths + ", '" + newDependecyPath + "'" : "'" + newDependecyPath + "'";
-
-        return replaceStringRange(oldString, newPaths, fromIndex, toIndex);
-    } 
-    
-    return "['" + newDependecyPath + "']";
-}
-
 async function updateDocument(editor, startLine, startChar, endLine, endChar, content) {
-    var editorCoords = {
-        start : {
-            line: startLine,
-            char: startChar
-        },
-        end : {
-            line: endLine,
-            char: endChar
-        }
-    }
-    
-    await editCurrentDocument(editor, editorCoords, content);
+    return editCurrentDocument(editor, { start: { line: startLine, char: startChar }, end: { line: endLine, char: endChar } }, content);
 }
-
-exports.getCoords = getCoords;
-exports.getUpdatedFunctionParams = getUpdatedFunctionParams;
-exports.getUpdatedDepPath = getUpdatedDepPath;
-exports.createPosition = createPosition;
-exports.editCurrentDocument = editCurrentDocument;
-exports.updateDocument = updateDocument;
+module.exports = { getCoords, getUpdatedFunctionParams, getUpdatedDepPath, createPosition, editCurrentDocument, updateDocument, buildModuleEdits };

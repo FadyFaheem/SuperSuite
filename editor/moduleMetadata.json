@@ -1,0 +1,758 @@
+[
+  {
+    "path": "N/action",
+    "param": "action",
+    "description": "Inspect and execute supported record actions.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1510761537.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/auth",
+    "param": "auth",
+    "description": "Change the current NetSuite user login credentials.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296360422.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "Use secure credential inputs; never embed passwords in source or logs."
+  },
+  {
+    "path": "N/cache",
+    "param": "cache",
+    "description": "Store temporary values in server-side caches.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4642573343.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/certificateControl",
+    "param": "certificateControl",
+    "description": "Manage digital certificate records.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547247950.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Certificate Management",
+      "Certificate Access (execution role; see reference)"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/commerce",
+    "param": "commerce",
+    "description": "Namespace for supported commerce leaf modules; not importable itself.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1532341439.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "namespace",
+    "minVersion": "2.0",
+    "notes": "Import N/commerce/recordView for the documented item and website APIs."
+  },
+  {
+    "path": "N/commerce/recordView",
+    "param": "recordView",
+    "description": "Read cached public item and website fields in a shopping session.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1532341950.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "Requires an active shopping session and SuiteCommerce or SuiteCommerce Advanced 2019.2 or later. N/commerce itself is a namespace, not an importable module."
+  },
+  {
+    "path": "N/compress",
+    "param": "compress",
+    "description": "Compress files and assemble archives.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158584507367.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/config",
+    "param": "config",
+    "description": "Load account configuration pages.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4261803800.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/crypto",
+    "param": "crypto",
+    "description": "Hash, authenticate and encrypt data.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358549582.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/crypto/certificate",
+    "param": "certificate",
+    "description": "Sign and verify data with digital certificates.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1543432423.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Certificate Access"
+    ],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "The authenticated/execution role also needs access to the chosen certificate."
+  },
+  {
+    "path": "N/crypto/random",
+    "param": "random",
+    "description": "Generate cryptographically secure random values.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_13113107585.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "serverMinVersion": "2.1",
+    "notes": "Client scripts support 2.0 and 2.1; server scripts require SuiteScript 2.1."
+  },
+  {
+    "path": "N/currency",
+    "param": "currency",
+    "description": "Look up currency exchange rates.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358551775.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/currentRecord",
+    "param": "currentRecord",
+    "description": "Access the record displayed in a client script.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4625600928.html",
+    "contexts": [
+      "client"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/dataset",
+    "param": "dataset",
+    "description": "Create and load SuiteAnalytics datasets.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_158946741680.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "SuiteAnalytics Workbook"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/documentCapture",
+    "param": "documentCapture",
+    "description": "Extract text and structured data from documents.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_8134325498.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.1",
+    "notes": "Availability and usage limits depend on account and service configuration."
+  },
+  {
+    "path": "N/email",
+    "param": "email",
+    "description": "Send regular, bulk and campaign email.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358552361.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "Sending as another user requires Vicarious Email permission; attachments are server-only."
+  },
+  {
+    "path": "N/encode",
+    "param": "encode",
+    "description": "Convert string encodings.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4369847722.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/error",
+    "param": "error",
+    "description": "Build named SuiteScript errors.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4243798608.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/file",
+    "param": "file",
+    "description": "Read, create and manage File Cabinet files.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4205693274.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/format",
+    "param": "format",
+    "description": "Parse and format values using NetSuite preferences.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4388721627.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/format/i18n",
+    "param": "i18n",
+    "description": "Format numbers, currencies and phone numbers for locales.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1543861741.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/http",
+    "param": "http",
+    "description": "Send HTTP requests.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296361104.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/https",
+    "param": "https",
+    "description": "Send HTTPS requests and use secure credential handles.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4418229131.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/https/clientCertificate",
+    "param": "clientCertificate",
+    "description": "Send HTTPS requests authenticated by a digital certificate.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1543986321.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Certificate Access"
+    ],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "The authenticated/execution role also needs access to the chosen certificate."
+  },
+  {
+    "path": "N/keyControl",
+    "param": "keyControl",
+    "description": "Manage stored SSH keys.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1557413213.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Key Management"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/llm",
+    "param": "llm",
+    "description": "Call NetSuite generative AI and embedding APIs.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_9123730083.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.1",
+    "notes": "Availability, models, governance and free usage depend on account features and release."
+  },
+  {
+    "path": "N/log",
+    "param": "log",
+    "description": "Write script execution log entries.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4574548135.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "Client-script logging has deployment and form-attachment restrictions; consult the module reference."
+  },
+  {
+    "path": "N/machineTranslation",
+    "param": "machineTranslation",
+    "description": "Translate text documents with generative AI.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_3151132758.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.1",
+    "notes": "Availability and usage limits depend on account and service configuration."
+  },
+  {
+    "path": "N/manufacturing/productionCharges",
+    "param": "productionCharges",
+    "description": "Update manufacturing production-charge unit costs.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_1110531599.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Edit: Build Assemblies",
+      "Edit: Work Order Completion and Work Order Issue when WIP is enabled"
+    ],
+    "status": "supported",
+    "minVersion": "2.1",
+    "notes": "Requires Assembly Items and Allow bulk cost updates for Production Charges. WIP changes transaction permissions; inspect the linked prerequisites. Cost changes do not trigger other SuiteScripts."
+  },
+  {
+    "path": "N/pgp",
+    "param": "pgp",
+    "description": "Encrypt, sign and verify PGP messages.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_5095832176.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.1"
+  },
+  {
+    "path": "N/piremoval",
+    "param": "piremoval",
+    "description": "Manage personal-information removal tasks.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156173791240.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Remove Personal Information Create",
+      "Remove Personal Information Run"
+    ],
+    "status": "supported",
+    "minVersion": "2.0",
+    "notes": "Removal tasks can erase personal information; review scope before submission."
+  },
+  {
+    "path": "N/plugin",
+    "param": "plugin",
+    "description": "Find and load custom plug-in implementations.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4558176297.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/portlet",
+    "param": "portlet",
+    "description": "Refresh and resize a client-side form portlet.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4473510730.html",
+    "contexts": [
+      "client"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/query",
+    "param": "query",
+    "description": "Build SuiteAnalytics queries and run SuiteQL.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1510275060.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [
+      "SuiteAnalytics Workbook"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/record",
+    "param": "record",
+    "description": "Load and manipulate records and their sublists.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267255811.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/recordContext",
+    "param": "recordContext",
+    "description": "Inspect the context of a record.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158627324548.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/redirect",
+    "param": "redirect",
+    "description": "Redirect supported server UI flows.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424286105.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "scriptTypes": [
+      "Suitelet",
+      "UserEventScript"
+    ],
+    "notes": "Only supported UI flows, such as Suitelets and qualifying user events, can redirect. Check the individual method script-type restrictions."
+  },
+  {
+    "path": "N/render",
+    "param": "render",
+    "description": "Create templates, documents, email merges and PDFs.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4412042824.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Advanced PDF/HTML Templates",
+      "Custom PDF Layouts"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/runtime",
+    "param": "runtime",
+    "description": "Read execution, account, session and user settings.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296359529.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/scriptTypes/restlet",
+    "param": "restlet",
+    "description": "Create RESTlet responses with an explicit content type.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_4130555042.html",
+    "contexts": [
+      "restlet"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/search",
+    "param": "search",
+    "description": "Build and execute NetSuite searches.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345764122.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [
+      "Perform Search",
+      "Persist Search",
+      "Publish Search"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/sftp",
+    "param": "sftp",
+    "description": "Connect to remote SFTP servers.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4617004932.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Key Access (public-key authentication)"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/sso",
+    "param": "sso",
+    "description": "Retired SuiteSignOn integration module.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/chapter_4220488571.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "retired",
+    "minVersion": "2.0",
+    "notes": "Oracle ended SuiteSignOn and N/sso support in NetSuite 2025.1. No current import or method suggestions are offered."
+  },
+  {
+    "path": "N/suiteAppInfo",
+    "param": "suiteAppInfo",
+    "description": "Inspect installed bundles and SuiteApps.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_160236086332.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/task",
+    "param": "task",
+    "description": "Create and monitor background tasks.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345787858.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Tasks"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/task/accounting/recognition",
+    "param": "recognition",
+    "description": "Create and monitor revenue-recognition merge tasks.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1554472720.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Transactions: Revenue Arrangement"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/transaction",
+    "param": "transaction",
+    "description": "Void supported transactions.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4413162576.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/translation",
+    "param": "translation",
+    "description": "Read Translation Collection strings.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1538666156.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/ui/dialog",
+    "param": "dialog",
+    "description": "Display modal client dialogs.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4497725142.html",
+    "contexts": [
+      "client"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/ui/message",
+    "param": "message",
+    "description": "Display client notification messages.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4497735093.html",
+    "contexts": [
+      "client"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/ui/serverWidget",
+    "param": "serverWidget",
+    "description": "Construct server-side NetSuite UI forms and lists.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4321345532.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0",
+    "scriptTypes": [
+      "Suitelet",
+      "UserEventScript"
+    ],
+    "notes": "Use in Suitelets or supported beforeLoad user-event flows. Check individual method restrictions."
+  },
+  {
+    "path": "N/url",
+    "param": "url",
+    "description": "Resolve NetSuite navigation URLs.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358552918.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/util",
+    "param": "util",
+    "description": "Use collection and type-inspection utilities.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4569538303.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/workbook",
+    "param": "workbook",
+    "description": "Create and load SuiteAnalytics workbooks.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_159006350818.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "SuiteAnalytics Workbook"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/workflow",
+    "param": "workflow",
+    "description": "Initiate or trigger workflows.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4341725558.html",
+    "contexts": [
+      "server"
+    ],
+    "permissions": [
+      "Workflow"
+    ],
+    "status": "supported",
+    "minVersion": "2.0"
+  },
+  {
+    "path": "N/xml",
+    "param": "xml",
+    "description": "Parse, validate and manipulate XML.",
+    "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4344917661.html",
+    "contexts": [
+      "client",
+      "server"
+    ],
+    "permissions": [],
+    "status": "supported",
+    "minVersion": "2.0"
+  }
+]

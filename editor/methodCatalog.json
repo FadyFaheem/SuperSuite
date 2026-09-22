@@ -1,0 +1,4329 @@
+{
+  "N/action": [
+    [
+      "execute",
+      "execute({ recordType: ${1:recordType}, id: ${2:actionId}, params: { recordId: ${3:recordId} } })",
+      "Oracle action.execute API. Supply recordType, id, params.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1509391388.html",
+        "requiredOptions": [
+          "recordType",
+          "id",
+          "params"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.2"
+      }
+    ],
+    [
+      "executeBulk",
+      "executeBulk({ recordType: ${1:recordType}, id: ${2:id}, params: ${3:params} })",
+      "Oracle action.executeBulk API. Supply recordType, id, params.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1540815927.html",
+        "requiredOptions": [
+          "recordType",
+          "id",
+          "params"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "find",
+      "find({ recordType: ${1:recordType} })",
+      "Oracle action.find API. Supply recordType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1509389605.html",
+        "requiredOptions": [
+          "recordType"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.2"
+      }
+    ],
+    [
+      "get",
+      "get({ recordType: ${1:recordType}, id: ${2:id} })",
+      "Oracle action.get API. Supply recordType, id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1509384818.html",
+        "requiredOptions": [
+          "recordType",
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.2"
+      }
+    ],
+    [
+      "getBulkStatus",
+      "getBulkStatus({ taskId: ${1:taskId} })",
+      "Oracle action.getBulkStatus API. Supply taskId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1540816132.html",
+        "requiredOptions": [
+          "taskId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ]
+  ],
+  "N/auth": [
+    [
+      "changeEmail",
+      "changeEmail({ newEmail: ${1:newEmail}, password: ${2:password} })",
+      "Oracle auth.changeEmail API. Supply newEmail, password.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4298156427.html",
+        "requiredOptions": [
+          "newEmail",
+          "password"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "changePassword",
+      "changePassword({ currentPassword: ${1:currentPassword}, newPassword: ${2:newPassword} })",
+      "Oracle auth.changePassword API. Supply currentPassword, newPassword.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4298157647.html",
+        "requiredOptions": [
+          "currentPassword",
+          "newPassword"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/cache": [
+    [
+      "getCache",
+      "getCache({ name: ${1:name} })",
+      "Oracle cache.getCache API. Supply name.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4642627983.html",
+        "requiredOptions": [
+          "name"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2016.2"
+      }
+    ]
+  ],
+  "N/certificateControl": [
+    [
+      "findCertificates",
+      "findCertificates({  })",
+      "Oracle certificateControl.findCertificates API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547249535.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "findUsages",
+      "findUsages({  })",
+      "Oracle certificateControl.findUsages API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156146904779.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "createCertificate",
+      "createCertificate({ file: ${1:file}, name: ${2:name} })",
+      "Oracle certificateControl.createCertificate API. Supply file, name.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156156407497.html",
+        "requiredOptions": [
+          "file",
+          "name"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "deleteCertificate",
+      "deleteCertificate({ scriptId: ${1:scriptId} })",
+      "Oracle certificateControl.deleteCertificate API. Supply scriptId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156199793585.html",
+        "requiredOptions": [
+          "scriptId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "loadCertificate",
+      "loadCertificate({ scriptId: ${1:scriptId} })",
+      "Oracle certificateControl.loadCertificate API. Supply scriptId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156201707058.html",
+        "requiredOptions": [
+          "scriptId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "lock",
+      "lock({ id: ${1:id} })",
+      "Oracle certificateControl.lock API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_161316650912.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "unlock",
+      "unlock({ id: ${1:id} })",
+      "Oracle certificateControl.unlock API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_161316704169.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ]
+  ],
+  "N/compress": [
+    [
+      "gzip",
+      "gzip({ file: ${1:file} })",
+      "Oracle compress.gzip API. Supply file.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158584918027.html",
+        "requiredOptions": [
+          "file"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "gunzip",
+      "gunzip({ file: ${1:file} })",
+      "Oracle compress.gunzip API. Supply file.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158584955171.html",
+        "requiredOptions": [
+          "file"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createArchiver",
+      "createArchiver()",
+      "Oracle compress.createArchiver API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158584980366.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ]
+  ],
+  "N/config": [
+    [
+      "load",
+      "load({ type: ${1:type} })",
+      "Oracle config.load API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4256772439.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/crypto": [
+    [
+      "checkPasswordField",
+      "checkPasswordField({ fieldId: ${1:fieldId}, recordId: ${2:recordId}, recordType: ${3:recordType}, value: ${4:value} })",
+      "Oracle crypto.checkPasswordField API. Supply fieldId, recordId, recordType, value.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160806904480.html",
+        "requiredOptions": [
+          "fieldId",
+          "recordId",
+          "recordType",
+          "value"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "createCipher",
+      "createCipher({ algorithm: ${1:algorithm}, key: ${2:key} })",
+      "Oracle crypto.createCipher API. Supply algorithm, key.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358650498.html",
+        "requiredOptions": [
+          "algorithm",
+          "key"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createDecipher",
+      "createDecipher({ algorithm: ${1:algorithm}, key: ${2:key}, iv: ${3:iv} })",
+      "Oracle crypto.createDecipher API. Supply algorithm, key, iv.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358650886.html",
+        "requiredOptions": [
+          "algorithm",
+          "key",
+          "iv"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createHash",
+      "createHash({ algorithm: ${1:algorithm} })",
+      "Oracle crypto.createHash API. Supply algorithm.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358647370.html",
+        "requiredOptions": [
+          "algorithm"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createHmac",
+      "createHmac({ algorithm: ${1:algorithm}, key: ${2:key} })",
+      "Oracle crypto.createHmac API. Supply algorithm, key.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358647613.html",
+        "requiredOptions": [
+          "algorithm",
+          "key"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createSecretKey",
+      "createSecretKey({ secret: ${1:secret} })",
+      "Oracle crypto.createSecretKey API. Supply secret.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358653390.html",
+        "requiredOptions": [
+          "secret"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/crypto/certificate": [
+    [
+      "signXml",
+      "signXml({ xmlString: ${1:xmlString}, certId: ${2:certId}, algorithm: ${3:algorithm}, rootTag: ${4:rootTag} })",
+      "Oracle certificate.signXml API. Supply xmlString, certId, algorithm, rootTag.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547090628.html",
+        "requiredOptions": [
+          "xmlString",
+          "certId",
+          "algorithm",
+          "rootTag"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "createSigner",
+      "createSigner({ certId: ${1:certId}, algorithm: ${2:algorithm} })",
+      "Oracle certificate.createSigner API. Supply certId, algorithm.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547071865.html",
+        "requiredOptions": [
+          "certId",
+          "algorithm"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "createVerifier",
+      "createVerifier({ certId: ${1:certId}, algorithm: ${2:algorithm} })",
+      "Oracle certificate.createVerifier API. Supply certId, algorithm.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547089078.html",
+        "requiredOptions": [
+          "certId",
+          "algorithm"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "verifyXmlSignature",
+      "verifyXmlSignature({ rootTag: ${1:rootTag}, signedXml: ${2:signedXml} })",
+      "Oracle certificate.verifyXmlSignature API. Supply rootTag, signedXml.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547090251.html",
+        "requiredOptions": [
+          "rootTag",
+          "signedXml"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ]
+  ],
+  "N/crypto/random": [
+    [
+      "generateBytes",
+      "generateBytes({ size: ${1:size} })",
+      "Oracle random.generateBytes API. Supply size.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0526121734.html",
+        "requiredOptions": [
+          "size"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2023.1"
+      }
+    ],
+    [
+      "generateInt",
+      "generateInt({ max: ${1:max} })",
+      "Oracle random.generateInt API. Supply max.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0526122403.html",
+        "requiredOptions": [
+          "max"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2023.1"
+      }
+    ],
+    [
+      "generateUUID",
+      "generateUUID()",
+      "Oracle random.generateUUID API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0526122721.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2023.1"
+      }
+    ]
+  ],
+  "N/currency": [
+    [
+      "exchangeRate",
+      "exchangeRate({ source: ${1:source}, target: ${2:target} })",
+      "Oracle currency.exchangeRate API. Supply source, target.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358678787.html",
+        "requiredOptions": [
+          "source",
+          "target"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/currentRecord": [
+    [
+      "get",
+      "get()",
+      "Get the current client-side record.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4637729624.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.2"
+      }
+    ]
+  ],
+  "N/dataset": [
+    [
+      "create",
+      "create({ type: ${1:type} })",
+      "Oracle dataset.create API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158989971922.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createColumn",
+      "createColumn({ fieldId: ${1:fieldId} })",
+      "Oracle dataset.createColumn API. Supply fieldId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158990102328.html",
+        "requiredOptions": [
+          "fieldId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createCondition",
+      "createCondition({ column: ${1:column}, operator: ${2:operator} })",
+      "Oracle dataset.createCondition API. Supply column, operator.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158990217350.html",
+        "requiredOptions": [
+          "column",
+          "operator"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createJoin",
+      "createJoin({ fieldId: ${1:fieldId} })",
+      "Oracle dataset.createJoin API. Supply fieldId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158990279568.html",
+        "requiredOptions": [
+          "fieldId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createTranslation",
+      "createTranslation({ collection: ${1:collection}, key: ${2:key} })",
+      "Oracle dataset.createTranslation API. Supply collection, key.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162853138869.html",
+        "requiredOptions": [
+          "collection",
+          "key"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "describe",
+      "describe({ id: ${1:id} })",
+      "Oracle dataset.describe API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162853496011.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "list",
+      "list()",
+      "Oracle dataset.list API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158990317009.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "listPaged",
+      "listPaged({ pageSize: ${1:pageSize} })",
+      "Oracle dataset.listPaged API. Supply pageSize.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162853512391.html",
+        "requiredOptions": [
+          "pageSize"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "load",
+      "load({ id: ${1:id} })",
+      "Oracle dataset.load API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158990335776.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ]
+  ],
+  "N/documentCapture": [
+    [
+      "documentToStructure",
+      "documentToStructure({ file: ${1:file} })",
+      "Oracle documentCapture.documentToStructure API. Supply file.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0704102801.html",
+        "requiredOptions": [
+          "file"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "documentToText",
+      "documentToText({ file: ${1:file} })",
+      "Oracle documentCapture.documentToText API. Supply file.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0704103115.html",
+        "requiredOptions": [
+          "file"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "getRemainingConcurrency",
+      "getRemainingConcurrency()",
+      "Oracle documentCapture.getRemainingConcurrency API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_70083055604.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "getRemainingFreeUsage",
+      "getRemainingFreeUsage()",
+      "Deprecated. Import N/llm and use llm.getRemainingUsage() for remaining NetSuite AI Units.",
+      {
+        "deprecated": true,
+        "replacement": "llm.getRemainingUsage()",
+        "deprecationMessage": "Deprecated by Oracle. Import N/llm and use llm.getRemainingUsage() to read remaining NetSuite AI Units. This legacy helper may be removed in a future release.",
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_42084005061.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "parseResult",
+      "parseResult({ file: ${1:file} })",
+      "Oracle documentCapture.parseResult API. Supply file.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0704103210.html",
+        "requiredOptions": [
+          "file"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ]
+  ],
+  "N/email": [
+    [
+      "send",
+      "send({ author: ${1:author}, body: ${2:body}, recipients: ${3:recipients}, subject: ${4:subject} })",
+      "Oracle email.send API. Supply author, body, recipients, subject.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358681681.html",
+        "requiredOptions": [
+          "author",
+          "body",
+          "recipients",
+          "subject"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "sendBulk",
+      "sendBulk({ author: ${1:author}, body: ${2:body}, recipients: ${3:recipients}, subject: ${4:subject} })",
+      "Oracle email.sendBulk API. Supply author, body, recipients, subject.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358667505.html",
+        "requiredOptions": [
+          "author",
+          "body",
+          "recipients",
+          "subject"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "sendCampaignEvent",
+      "sendCampaignEvent({ campaignEventId: ${1:campaignEventId}, recipientId: ${2:recipientId} })",
+      "Oracle email.sendCampaignEvent API. Supply campaignEventId, recipientId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4431144897.html",
+        "requiredOptions": [
+          "campaignEventId",
+          "recipientId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/encode": [
+    [
+      "convert",
+      "convert({ string: ${1:string}, inputEncoding: ${2:inputEncoding}, outputEncoding: ${3:outputEncoding} })",
+      "Oracle encode.convert API. Supply string, inputEncoding, outputEncoding.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4369851165.html",
+        "requiredOptions": [
+          "string",
+          "inputEncoding",
+          "outputEncoding"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.1"
+      }
+    ]
+  ],
+  "N/error": [
+    [
+      "create",
+      "create({ name: '${1:VALIDATION_ERROR}', message: '${2:Describe the error}', notifyOff: ${3:true} })",
+      "Create an error object; throw it to stop execution.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4243803203.html",
+        "requiredOptions": [
+          "message",
+          "name"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/file": [
+    [
+      "copy",
+      "copy({ folder: ${1:folder}, id: ${2:id} })",
+      "Oracle file.copy API. Supply folder, id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_161167269293.html",
+        "requiredOptions": [
+          "folder",
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "create",
+      "create({ name: '${1:example.txt}', fileType: ${2:file.Type.PLAINTEXT}, contents: '${3}', folder: ${4:1} })",
+      "Create an unsaved file. Call save() to persist it.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4223861820.html",
+        "requiredOptions": [
+          "name",
+          "fileType"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "delete",
+      "delete({ id: ${1:id} })",
+      "Oracle file.delete API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4226573892.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "load",
+      "load({ id: ${1:1} })",
+      "Load a File Cabinet file.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4226574300.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/format": [
+    [
+      "format",
+      "format({ value: ${1:new Date()}, type: ${2:format.Type.DATE} })",
+      "Format a value using account/user preferences.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4388843892.html",
+        "requiredOptions": [
+          "value",
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "parse",
+      "parse({ value: '${1:date string}', type: ${2:format.Type.DATE} })",
+      "Parse a value using account/user preferences.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4388837989.html",
+        "requiredOptions": [
+          "value",
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/format/i18n": [
+    [
+      "spellOut",
+      "spellOut({ number: ${1:number}, locale: ${2:locale} })",
+      "Oracle format.spellOut API. Supply number, locale.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1549297222.html",
+        "requiredOptions": [
+          "number",
+          "locale"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "getCurrencyFormatter",
+      "getCurrencyFormatter({ currency: ${1:currency} })",
+      "Oracle format.getCurrencyFormatter API. Supply currency.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1558023369.html",
+        "requiredOptions": [
+          "currency"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "getNumberFormatter",
+      "getNumberFormatter({  })",
+      "Oracle format.getNumberFormatter API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1558023913.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "getPhoneNumberFormatter",
+      "getPhoneNumberFormatter({ formatType: ${1:formatType} })",
+      "Oracle format.getPhoneNumberFormatter API. Supply formatType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_20131717237.html",
+        "requiredOptions": [
+          "formatType"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "getPhoneNumberParser",
+      "getPhoneNumberParser({  })",
+      "Oracle format.getPhoneNumberParser API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_77132343780.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ]
+  ],
+  "N/http": [
+    [
+      "get",
+      "get({ url: ${1:url} })",
+      "Oracle http.get API. Supply url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4426024767.html",
+        "requiredOptions": [
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "delete",
+      "delete({ url: ${1:url} })",
+      "Oracle http.delete API. Supply url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4426024970.html",
+        "requiredOptions": [
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "post",
+      "post({ body: ${1:body}, url: ${2:url} })",
+      "Oracle http.post API. Supply body, url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4426024574.html",
+        "requiredOptions": [
+          "body",
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "put",
+      "put({ body: ${1:body}, url: ${2:url} })",
+      "Oracle http.put API. Supply body, url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4426024367.html",
+        "requiredOptions": [
+          "body",
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "request",
+      "request({ method: ${1:method}, url: ${2:url} })",
+      "Oracle http.request API. Supply method, url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4426024227.html",
+        "requiredOptions": [
+          "method",
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/https": [
+    [
+      "requestRestlet",
+      "requestRestlet({ deploymentId: ${1:deploymentId}, scriptId: ${2:scriptId} })",
+      "Oracle https.requestRestlet API. Supply deploymentId, scriptId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159139340774.html",
+        "requiredOptions": [
+          "deploymentId",
+          "scriptId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "requestSuiteTalkRest",
+      "requestSuiteTalkRest({ url: ${1:url} })",
+      "Oracle https.requestSuiteTalkRest API. Supply url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159139347369.html",
+        "requiredOptions": [
+          "url"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "delete",
+      "delete({ url: ${1:url} })",
+      "Oracle https.delete API. Supply url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4567631039.html",
+        "requiredOptions": [
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "get",
+      "get({ url: '${1:https://example.com}', headers: { ${2} } })",
+      "Send an HTTPS GET request.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4567631366.html",
+        "requiredOptions": [
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "post",
+      "post({ url: '${1:https://example.com}', body: JSON.stringify(${2:null}), headers: { 'Content-Type': 'application/json' } })",
+      "Send an HTTPS POST request.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4567628658.html",
+        "requiredOptions": [
+          "body",
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "put",
+      "put({ body: ${1:body}, url: ${2:url} })",
+      "Oracle https.put API. Supply body, url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4567627984.html",
+        "requiredOptions": [
+          "body",
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "request",
+      "request({ method: ${1:method}, url: ${2:url} })",
+      "Oracle https.request API. Supply method, url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4567630582.html",
+        "requiredOptions": [
+          "method",
+          "url"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createSecretKey",
+      "createSecretKey({ secret: ${1:secret} })",
+      "Oracle https.createSecretKey API. Supply secret.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4418247967.html",
+        "requiredOptions": [
+          "secret"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createSecureString",
+      "createSecureString({ input: ${1:input} })",
+      "Oracle https.createSecureString API. Supply input.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4418247678.html",
+        "requiredOptions": [
+          "input"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "requestSuitelet",
+      "requestSuitelet({ deploymentId: ${1:deploymentId}, scriptId: ${2:scriptId} })",
+      "Oracle https.requestSuitelet API. Supply deploymentId, scriptId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_44162330742.html",
+        "requiredOptions": [
+          "deploymentId",
+          "scriptId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2023.1"
+      }
+    ]
+  ],
+  "N/https/clientCertificate": [
+    [
+      "post",
+      "post({ url: ${1:url}, certId: ${2:certId}, body: ${3:body} })",
+      "Oracle clientCertificate.post API. Supply url, certId, body.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1547245856.html",
+        "requiredOptions": [
+          "url",
+          "certId",
+          "body"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "get",
+      "get({ url: ${1:url}, certId: ${2:certId} })",
+      "Oracle clientCertificate.get API. Supply url, certId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156409084544.html",
+        "requiredOptions": [
+          "url",
+          "certId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "put",
+      "put({ url: ${1:url}, body: ${2:body}, certId: ${3:certId} })",
+      "Oracle clientCertificate.put API. Supply url, body, certId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156409092290.html",
+        "requiredOptions": [
+          "url",
+          "body",
+          "certId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "delete",
+      "delete({ url: ${1:url}, certId: ${2:certId} })",
+      "Oracle clientCertificate.delete API. Supply url, certId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156409102713.html",
+        "requiredOptions": [
+          "url",
+          "certId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "request",
+      "request({ url: ${1:url}, certId: ${2:certId}, headers: ${3:headers}, method: ${4:method} })",
+      "Oracle clientCertificate.request API. Supply url, certId, headers, method.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156409111673.html",
+        "requiredOptions": [
+          "url",
+          "certId",
+          "headers",
+          "method"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ]
+  ],
+  "N/keyControl": [
+    [
+      "findKeys",
+      "findKeys({  })",
+      "Oracle keyControl.findKeys API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1557413246.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "createKey",
+      "createKey({ file: ${1:file}, name: ${2:name} })",
+      "Oracle keyControl.createKey API. Supply file, name.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1557417459.html",
+        "requiredOptions": [
+          "file",
+          "name"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "deleteKey",
+      "deleteKey({ scriptId: ${1:scriptId} })",
+      "Oracle keyControl.deleteKey API. Supply scriptId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1557417847.html",
+        "requiredOptions": [
+          "scriptId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "loadKey",
+      "loadKey({ scriptId: ${1:scriptId} })",
+      "Oracle keyControl.loadKey API. Supply scriptId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1557417962.html",
+        "requiredOptions": [
+          "scriptId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "lock",
+      "lock({ id: ${1:id} })",
+      "Oracle keyControl.lock API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_161351701469.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "unlock",
+      "unlock({ id: ${1:id} })",
+      "Oracle keyControl.unlock API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_161351774208.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ]
+  ],
+  "N/llm": [
+    [
+      "generateText",
+      "generateText({ prompt: ${1:prompt} })",
+      "Oracle llm.generateText API. Supply prompt.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_1014032554.html",
+        "requiredOptions": [
+          "prompt"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2024.1"
+      }
+    ],
+    [
+      "evaluatePrompt",
+      "evaluatePrompt({ id: ${1:id} })",
+      "Oracle llm.evaluatePrompt API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0115064704.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ],
+    [
+      "generateTextStreamed",
+      "generateTextStreamed({ prompt: ${1:prompt} })",
+      "Oracle llm.generateTextStreamed API. Supply prompt.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_46075557997.html",
+        "requiredOptions": [
+          "prompt"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ],
+    [
+      "embed",
+      "embed({ inputs: ${1:inputs} })",
+      "Oracle llm.embed API. Supply inputs.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_76083302199.html",
+        "requiredOptions": [
+          "inputs"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ],
+    [
+      "evaluatePromptStreamed",
+      "evaluatePromptStreamed({ id: ${1:id} })",
+      "Oracle llm.evaluatePromptStreamed API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_47080704730.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ],
+    [
+      "createTool",
+      "createTool({ description: ${1:description}, name: ${2:name}, parameters: ${3:parameters} })",
+      "Oracle llm.createTool API. Supply description, name, parameters.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_54090013211.html",
+        "requiredOptions": [
+          "description",
+          "name",
+          "parameters"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "createChatMessage",
+      "createChatMessage({ role: ${1:role}, text: ${2:text} })",
+      "Oracle llm.createChatMessage API. Supply role, text.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_1014104320.html",
+        "requiredOptions": [
+          "role",
+          "text"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2024.1"
+      }
+    ],
+    [
+      "createDocument",
+      "createDocument({ data: ${1:data}, id: ${2:id} })",
+      "Oracle llm.createDocument API. Supply data, id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_79091440431.html",
+        "requiredOptions": [
+          "data",
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ],
+    [
+      "createToolParameter",
+      "createToolParameter({ description: ${1:description}, name: ${2:name}, type: ${3:type} })",
+      "Oracle llm.createToolParameter API. Supply description, name, type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_47090328711.html",
+        "requiredOptions": [
+          "description",
+          "name",
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "createToolResult",
+      "createToolResult({ call: ${1:call}, outputs: ${2:outputs} })",
+      "Oracle llm.createToolResult API. Supply call, outputs.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_40090425838.html",
+        "requiredOptions": [
+          "call",
+          "outputs"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.2"
+      }
+    ],
+    [
+      "getRemainingFreeUsage",
+      "getRemainingFreeUsage()",
+      "Deprecated. Use llm.getRemainingUsage() for remaining NetSuite AI Units.",
+      {
+        "deprecated": true,
+        "replacement": "llm.getRemainingUsage()",
+        "deprecationMessage": "Deprecated by Oracle; use llm.getRemainingUsage() to read remaining NetSuite AI Units. This legacy helper may be removed in a future release.",
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_1014102816.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2024.1"
+      }
+    ],
+    [
+      "getRemainingUsage",
+      "getRemainingUsage()",
+      "Oracle llm.getRemainingUsage API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0808084043.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2026.1"
+      }
+    ],
+    [
+      "getRemainingFreeEmbedUsage",
+      "getRemainingFreeEmbedUsage()",
+      "Deprecated. Use llm.getRemainingUsage() for remaining NetSuite AI Units.",
+      {
+        "deprecated": true,
+        "replacement": "llm.getRemainingUsage()",
+        "deprecationMessage": "Deprecated by Oracle; use llm.getRemainingUsage() to read remaining NetSuite AI Units. This legacy helper may be removed in a future release.",
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_77083006042.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ]
+  ],
+  "N/log": [
+    [
+      "emergency",
+      "emergency({ title: '${1:Title}', details: ${2:'Details'} })",
+      "Write a emergency execution log entry. Do not log credentials.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4430385611.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "error",
+      "error({ title: '${1:Title}', details: ${2:'Details'} })",
+      "Write a error execution log entry. Do not log credentials.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4430385812.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "audit",
+      "audit({ title: '${1:Title}', details: ${2:'Details'} })",
+      "Write a audit execution log entry. Do not log credentials.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4430384449.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "debug",
+      "debug({ title: '${1:Title}', details: ${2:'Details'} })",
+      "Write a debug execution log entry. Do not log credentials.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4430385329.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ]
+  ],
+  "N/machineTranslation": [
+    [
+      "translate",
+      "translate({ documents: ${1:documents}, targetLanguage: ${2:targetLanguage} })",
+      "Oracle machineTranslation.translate API. Supply documents, targetLanguage.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0606031958.html",
+        "requiredOptions": [
+          "documents",
+          "targetLanguage"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ],
+    [
+      "createDocument",
+      "createDocument({ id: ${1:id}, text: ${2:text} })",
+      "Oracle machineTranslation.createDocument API. Supply id, text.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0606031651.html",
+        "requiredOptions": [
+          "id",
+          "text"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2025.1"
+      }
+    ]
+  ],
+  "N/manufacturing/productionCharges": [
+    [
+      "updateChargesToCustomUnitCost",
+      "updateChargesToCustomUnitCost({ transactionId: ${1:transactionId}, transactionLineIds: ${2:transactionLineIds}, newUnitCost: ${3:newUnitCost} })",
+      "Oracle productionCharges.updateChargesToCustomUnitCost API. Supply transactionId, transactionLineIds, newUnitCost.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0310114858.html",
+        "requiredOptions": [
+          "transactionId",
+          "transactionLineIds",
+          "newUnitCost"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2026.1"
+      }
+    ],
+    [
+      "updateChargesToItemPurchasePrice",
+      "updateChargesToItemPurchasePrice({ transactionId: ${1:transactionId}, transactionLineIds: ${2:transactionLineIds} })",
+      "Oracle productionCharges.updateChargesToItemPurchasePrice API. Supply transactionId, transactionLineIds.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0310115150.html",
+        "requiredOptions": [
+          "transactionId",
+          "transactionLineIds"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2026.1"
+      }
+    ],
+    [
+      "updateAllChargesToItemPurchasePrice",
+      "updateAllChargesToItemPurchasePrice({ transactionId: ${1:transactionId} })",
+      "Oracle productionCharges.updateAllChargesToItemPurchasePrice API. Supply transactionId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_0310115209.html",
+        "requiredOptions": [
+          "transactionId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2026.1"
+      }
+    ]
+  ],
+  "N/pgp": [
+    [
+      "createConfig",
+      "createConfig({  })",
+      "Oracle pgp.createConfig API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923113524.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ],
+    [
+      "createMessageData",
+      "createMessageData({ content: ${1:content} })",
+      "Oracle pgp.createMessageData API. Supply content.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923113223.html",
+        "requiredOptions": [
+          "content"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ],
+    [
+      "createSigner",
+      "createSigner({ key: ${1:key}, algorithm: ${2:algorithm} })",
+      "Oracle pgp.createSigner API. Supply key, algorithm.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923113742.html",
+        "requiredOptions": [
+          "key",
+          "algorithm"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ],
+    [
+      "createVerification",
+      "createVerification()",
+      "Oracle pgp.createVerification API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923113648.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ],
+    [
+      "loadKeyFromSecret",
+      "loadKeyFromSecret({ secret: ${1:secret} })",
+      "Oracle pgp.loadKeyFromSecret API. Supply secret.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923112727.html",
+        "requiredOptions": [
+          "secret"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ],
+    [
+      "parseMessage",
+      "parseMessage({ value: ${1:value} })",
+      "Oracle pgp.parseMessage API. Supply value.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923113424.html",
+        "requiredOptions": [
+          "value"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ],
+    [
+      "parseKey",
+      "parseKey({ value: ${1:value} })",
+      "Oracle pgp.parseKey API. Supply value.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0923113901.html",
+        "requiredOptions": [
+          "value"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2022.2"
+      }
+    ]
+  ],
+  "N/piremoval": [
+    [
+      "createTask",
+      "createTask({  })",
+      "Oracle piremoval.createTask API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156174907211.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "loadTask",
+      "loadTask({ id: ${1:id} })",
+      "Oracle piremoval.loadTask API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156174989271.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "getTaskStatus",
+      "getTaskStatus({ id: ${1:id} })",
+      "Oracle piremoval.getTaskStatus API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156174976129.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "deleteTask",
+      "deleteTask({ id: ${1:id} })",
+      "Oracle piremoval.deleteTask API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_156174955494.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ]
+  ],
+  "N/plugin": [
+    [
+      "findImplementations",
+      "findImplementations({ type: ${1:type} })",
+      "Oracle plugin.findImplementations API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4558224168.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "loadImplementation",
+      "loadImplementation({ type: ${1:type} })",
+      "Oracle plugin.loadImplementation API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4558229654.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ]
+  ],
+  "N/portlet": [
+    [
+      "resize",
+      "resize()",
+      "Oracle portlet.resize API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4473510937.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "refresh",
+      "refresh()",
+      "Oracle portlet.refresh API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4473511255.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.1"
+      }
+    ]
+  ],
+  "N/query": [
+    [
+      "create",
+      "create({ type: ${1:type} })",
+      "Oracle query.create API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1510275581.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.1"
+      }
+    ],
+    [
+      "load",
+      "load({ id: ${1:id} })",
+      "Oracle query.load API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1510349101.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.2"
+      }
+    ],
+    [
+      "createPeriod",
+      "createPeriod({ code: ${1:code} })",
+      "Oracle query.createPeriod API. Supply code.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158289670344.html",
+        "requiredOptions": [
+          "code"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2020.1"
+      }
+    ],
+    [
+      "createRelativeDate",
+      "createRelativeDate({ dateId: ${1:dateId}, value: ${2:value} })",
+      "Oracle query.createRelativeDate API. Supply dateId, value.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1544108154.html",
+        "requiredOptions": [
+          "dateId",
+          "value"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "delete",
+      "delete({ id: ${1:id} })",
+      "Oracle query.delete API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1530819817.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.2"
+      }
+    ],
+    [
+      "listTables",
+      "listTables({ workbookId: ${1:workbookId} })",
+      "Oracle query.listTables API. Supply workbookId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158289760700.html",
+        "requiredOptions": [
+          "workbookId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2020.1"
+      }
+    ],
+    [
+      "runSuiteQL",
+      "runSuiteQL({ query: '${1:SELECT id FROM customer WHERE id = ?}', params: [${2:1}] })",
+      "Run parameterized SuiteQL; never interpolate user input.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157960542026.html",
+        "requiredOptions": [
+          "query"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2020.1"
+      }
+    ],
+    [
+      "runSuiteQLPaged",
+      "runSuiteQLPaged({ query: '${1:SELECT id FROM customer ORDER BY id}', pageSize: ${2:1000} })",
+      "Run paged SuiteQL with a unique, deterministic ORDER BY.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157960586441.html",
+        "requiredOptions": [
+          "query"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2020.1"
+      }
+    ]
+  ],
+  "N/record": [
+    [
+      "attach",
+      "attach({ record: ${1:record}, to: ${2:to} })",
+      "Oracle record.attach API. Supply record, to.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267284169.html",
+        "requiredOptions": [
+          "record",
+          "to"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "copy",
+      "copy({ type: ${1:'salesorder'}, id: ${2:1}, isDynamic: ${3:false} })",
+      "Copy an existing record.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267258260.html",
+        "requiredOptions": [
+          "type",
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "create",
+      "create({ type: ${1:'salesorder'}, isDynamic: ${2:false} })",
+      "Create an unsaved record.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267258059.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "delete",
+      "delete({ type: ${1:type}, id: ${2:id} })",
+      "Oracle record.delete API. Supply type, id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267283372.html",
+        "requiredOptions": [
+          "type",
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "detach",
+      "detach({ record: ${1:record}, from: ${2:from} })",
+      "Oracle record.detach API. Supply record, from.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267284360.html",
+        "requiredOptions": [
+          "record",
+          "from"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "load",
+      "load({ type: ${1:'salesorder'}, id: ${2:1}, isDynamic: ${3:false} })",
+      "Load an existing record by type and internal ID.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267258486.html",
+        "requiredOptions": [
+          "type",
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "submitFields",
+      "submitFields({ type: ${1:'salesorder'}, id: ${2:1}, values: { ${3:memo}: ${4:'value'} } })",
+      "Update supported body fields without loading the record.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267283788.html",
+        "requiredOptions": [
+          "type",
+          "id",
+          "values"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "transform",
+      "transform({ fromType: ${1:'salesorder'}, fromId: ${2:1}, toType: ${3:'invoice'}, isDynamic: ${4:false} })",
+      "Transform a record to a supported target type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4267258715.html",
+        "requiredOptions": [
+          "fromType",
+          "fromId",
+          "toType"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/recordContext": [
+    [
+      "getContext",
+      "getContext({ recordType: ${1:recordType}, recordId: ${2:recordId} })",
+      "Oracle recordContext.getContext API. Supply recordType, recordId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_158627355521.html",
+        "requiredOptions": [
+          "recordType",
+          "recordId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ]
+  ],
+  "N/redirect": [
+    [
+      "redirect",
+      "redirect({ url: ${1:url} })",
+      "Oracle redirect.redirect API. Supply url.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988767.html",
+        "requiredOptions": [
+          "url"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet",
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toRecord",
+      "toRecord({ id: ${1:id}, type: ${2:type} })",
+      "Oracle redirect.toRecord API. Supply id, type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424995667.html",
+        "requiredOptions": [
+          "id",
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet",
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toRecordTransform",
+      "toRecordTransform({ fromId: ${1:fromId}, fromType: ${2:fromType}, toType: ${3:toType} })",
+      "Oracle redirect.toRecordTransform API. Supply fromId, fromType, toType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_157713182405.html",
+        "requiredOptions": [
+          "fromId",
+          "fromType",
+          "toType"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.1"
+      }
+    ],
+    [
+      "toSavedSearch",
+      "toSavedSearch({ id: ${1:id} })",
+      "Oracle redirect.toSavedSearch API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988669.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toSavedSearchResult",
+      "toSavedSearchResult({ id: ${1:id} })",
+      "Oracle redirect.toSavedSearchResult API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988694.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toSearch",
+      "toSearch({ search: ${1:search} })",
+      "Oracle redirect.toSearch API. Supply search.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988719.html",
+        "requiredOptions": [
+          "search"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toSearchResult",
+      "toSearchResult({ search: ${1:search} })",
+      "Oracle redirect.toSearchResult API. Supply search.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988724.html",
+        "requiredOptions": [
+          "search"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toSuitelet",
+      "toSuitelet({ scriptId: ${1:scriptId}, deploymentId: ${2:deploymentId} })",
+      "Oracle redirect.toSuitelet API. Supply scriptId, deploymentId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988773.html",
+        "requiredOptions": [
+          "scriptId",
+          "deploymentId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet",
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "toTaskLink",
+      "toTaskLink({ id: ${1:id} })",
+      "Oracle redirect.toTaskLink API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4424988740.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet",
+          "UserEventScript"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/render": [
+    [
+      "bom",
+      "bom({ entityId: ${1:entityId} })",
+      "Oracle render.bom API. Supply entityId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_457552429198.html",
+        "requiredOptions": [
+          "entityId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "create",
+      "create()",
+      "Oracle render.create API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_455028930663.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "mergeEmail",
+      "mergeEmail({ templateId: ${1:templateId} })",
+      "Oracle render.mergeEmail API. Supply templateId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_454332824706.html",
+        "requiredOptions": [
+          "templateId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "packingSlip",
+      "packingSlip({ entityId: ${1:entityId} })",
+      "Oracle render.packingSlip API. Supply entityId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_458625732421.html",
+        "requiredOptions": [
+          "entityId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "pickingTicket",
+      "pickingTicket({ entityId: ${1:entityId} })",
+      "Oracle render.pickingTicket API. Supply entityId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_456921936034.html",
+        "requiredOptions": [
+          "entityId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "statement",
+      "statement({ entityId: ${1:entityId} })",
+      "Oracle render.statement API. Supply entityId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_455095458983.html",
+        "requiredOptions": [
+          "entityId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "transaction",
+      "transaction({ entityId: ${1:entityId} })",
+      "Oracle render.transaction API. Supply entityId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_452452331542.html",
+        "requiredOptions": [
+          "entityId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "xmlToPdf",
+      "xmlToPdf({ xmlString: ${1:xmlString} })",
+      "Oracle render.xmlToPdf API. Supply xmlString.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_459185424803.html",
+        "requiredOptions": [
+          "xmlString"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/runtime": [
+    [
+      "getCurrentScript",
+      "getCurrentScript()",
+      "Read script parameters or remaining governance usage.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296529387.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "getCurrentSession",
+      "getCurrentSession()",
+      "Get the current session.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296529736.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "getCurrentUser",
+      "getCurrentUser()",
+      "Read the current user and role.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296529105.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "isFeatureInEffect",
+      "isFeatureInEffect({ feature: '${1:SUBSIDIARIES}' })",
+      "Check whether an account feature is enabled.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4296530135.html",
+        "requiredOptions": [
+          "feature"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "isNextActive",
+      "isNextActive()",
+      "Oracle runtime.isNextActive API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/article_92152343123.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2026.1"
+      }
+    ]
+  ],
+  "N/scriptTypes/restlet": [
+    [
+      "createResponse",
+      "createResponse({ content: ${1:content}, contentType: ${2:contentType} })",
+      "Oracle restlet.createResponse API. Supply content, contentType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0618021129.html",
+        "requiredOptions": [
+          "content",
+          "contentType"
+        ],
+        "contexts": [
+          "restlet"
+        ],
+        "scriptTypes": [
+          "Restlet"
+        ],
+        "since": "2024.1"
+      }
+    ]
+  ],
+  "N/search": [
+    [
+      "create",
+      "create({ type: ${1:'salesorder'}, filters: [${2}], columns: [${3:'internalid'}] })",
+      "Create a search. Use a stable, unique sort when paging.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345171487.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createColumn",
+      "createColumn({ name: '${1:internalid}', sort: ${2:search.Sort.ASC} })",
+      "Create a result column.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345776927.html",
+        "requiredOptions": [
+          "name"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createFilter",
+      "createFilter({ name: '${1:internalid}', operator: ${2:search.Operator.ANYOF}, values: [${3:1}] })",
+      "Create a search filter.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345777107.html",
+        "requiredOptions": [
+          "name",
+          "operator"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createSetting",
+      "createSetting({ name: ${1:name}, value: ${2:value} })",
+      "Oracle search.createSetting API. Supply name, value.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1536171305.html",
+        "requiredOptions": [
+          "name",
+          "value"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2018.2"
+      }
+    ],
+    [
+      "delete",
+      "delete({ id: ${1:id} })",
+      "Oracle search.delete API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345775501.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "duplicates",
+      "duplicates({ type: ${1:type} })",
+      "Oracle search.duplicates API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345775593.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "global",
+      "global({ keywords: ${1:keywords} })",
+      "Oracle search.global API. Supply keywords.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345775747.html",
+        "requiredOptions": [
+          "keywords"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "load",
+      "load({ id: '${1:customsearch_example}' })",
+      "Load a saved search.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345775360.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "lookupFields",
+      "lookupFields({ type: ${1:'customer'}, id: ${2:1}, columns: ['${3:entityid}'] })",
+      "Look up selected body fields.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345776651.html",
+        "requiredOptions": [
+          "type",
+          "id",
+          "columns"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/sftp": [
+    [
+      "createConnection",
+      "createConnection({ url: ${1:url}, secret: ${2:secret}, hostKey: ${3:hostKey}, username: ${4:username} })",
+      "Oracle sftp.createConnection API. Supply url, secret, hostKey, username.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4617005472.html",
+        "requiredOptions": [
+          "url",
+          "secret",
+          "hostKey",
+          "username"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2016.2"
+      }
+    ]
+  ],
+  "N/suiteAppInfo": [
+    [
+      "isBundleInstalled",
+      "isBundleInstalled({ bundleId: ${1:bundleId} })",
+      "Oracle suiteAppInfo.isBundleInstalled API. Supply bundleId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160236055067.html",
+        "requiredOptions": [
+          "bundleId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "isSuiteAppInstalled",
+      "isSuiteAppInstalled({ suiteAppId: ${1:suiteAppId} })",
+      "Oracle suiteAppInfo.isSuiteAppInstalled API. Supply suiteAppId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160236079756.html",
+        "requiredOptions": [
+          "suiteAppId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "listBundlesContainingScripts",
+      "listBundlesContainingScripts({ scriptsIds: ${1:scriptsIds} })",
+      "Oracle suiteAppInfo.listBundlesContainingScripts API. Supply scriptsIds.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160236064276.html",
+        "requiredOptions": [
+          "scriptsIds"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "listInstalledBundles",
+      "listInstalledBundles()",
+      "Oracle suiteAppInfo.listInstalledBundles API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160236062593.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "listInstalledSuiteApps",
+      "listInstalledSuiteApps()",
+      "Oracle suiteAppInfo.listInstalledSuiteApps API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160236082257.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "listSuiteAppsContainingScripts",
+      "listSuiteAppsContainingScripts({ scriptsIds: ${1:scriptsIds} })",
+      "Oracle suiteAppInfo.listSuiteAppsContainingScripts API. Supply scriptsIds.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_160236084150.html",
+        "requiredOptions": [
+          "scriptsIds"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ]
+  ],
+  "N/task": [
+    [
+      "checkStatus",
+      "checkStatus({ taskId: ${1:taskId} })",
+      "Oracle task.checkStatus API. Supply taskId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345805891.html",
+        "requiredOptions": [
+          "taskId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "create",
+      "create({ taskType: ${1:task.TaskType.MAP_REDUCE}, scriptId: '${2:customscript_example}', deploymentId: '${3:customdeploy_example}' })",
+      "Create a task; call submit() to queue it.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4392320106.html",
+        "requiredOptions": [
+          "taskType"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/task/accounting/recognition": [
+    [
+      "create",
+      "create({ taskType: ${1:taskType} })",
+      "Oracle recognition.create API. Supply taskType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1554995115.html",
+        "requiredOptions": [
+          "taskType"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ],
+    [
+      "checkStatus",
+      "checkStatus({ taskId: ${1:taskId} })",
+      "Oracle recognition.checkStatus API. Supply taskId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1555005560.html",
+        "requiredOptions": [
+          "taskId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2019.2"
+      }
+    ]
+  ],
+  "N/transaction": [
+    [
+      "void",
+      "void({ id: ${1:id}, type: ${2:type} })",
+      "Oracle transaction.void API. Supply id, type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4413165692.html",
+        "requiredOptions": [
+          "id",
+          "type"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/translation": [
+    [
+      "get",
+      "get({ collection: ${1:collection}, key: ${2:key} })",
+      "Oracle translation.get API. Supply collection, key.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1541707388.html",
+        "requiredOptions": [
+          "collection",
+          "key"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "load",
+      "load({ collections: [{ alias: '${1:translationAlias}', collection: '${2:custcollection_example}', keys: ['${3:KEY}'] }] })",
+      "Oracle translation.load API. Supply collections.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1541708603.html",
+        "requiredOptions": [
+          "collections"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "selectLocale",
+      "selectLocale({ handle: ${1:handle}, locale: ${2:locale} })",
+      "Oracle translation.selectLocale API. Supply handle, locale.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1541708921.html",
+        "requiredOptions": [
+          "handle",
+          "locale"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ]
+  ],
+  "N/ui/dialog": [
+    [
+      "alert",
+      "alert({ title: '${1:Title}', message: '${2:Message}' })",
+      "Display a client dialog; returns a Promise.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4497744851.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "confirm",
+      "confirm({ title: '${1:Confirm}', message: '${2:Continue?}' })",
+      "Ask for confirmation; returns a Promise.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4497799943.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "create",
+      "create({  })",
+      "Oracle dialog.create API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4497804898.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.1"
+      }
+    ]
+  ],
+  "N/ui/message": [
+    [
+      "create",
+      "create({ type: ${1:type} })",
+      "Oracle message.create API. Supply type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4497873263.html",
+        "requiredOptions": [
+          "type"
+        ],
+        "contexts": [
+          "client"
+        ],
+        "since": "2016.1"
+      }
+    ]
+  ],
+  "N/ui/serverWidget": [
+    [
+      "createAssistant",
+      "createAssistant({ title: ${1:title} })",
+      "Oracle serverWidget.createAssistant API. Supply title.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4325753291.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createForm",
+      "createForm({ title: '${1:Form title}' })",
+      "Create a Suitelet form.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4329245048.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "createList",
+      "createList({ title: ${1:title} })",
+      "Oracle serverWidget.createList API. Supply title.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4329247625.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "scriptTypes": [
+          "Suitelet"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/url": [
+    [
+      "format",
+      "format({ domain: ${1:domain}, params: ${2:params} })",
+      "Oracle url.format API. Supply domain, params.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358672703.html",
+        "requiredOptions": [
+          "domain",
+          "params"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.1"
+      }
+    ],
+    [
+      "resolveDomain",
+      "resolveDomain({ hostType: ${1:hostType} })",
+      "Oracle url.resolveDomain API. Supply hostType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4861456597.html",
+        "requiredOptions": [
+          "hostType"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2017.1"
+      }
+    ],
+    [
+      "resolveRecord",
+      "resolveRecord({ isEditMode: ${1:isEditMode}, recordId: ${2:recordId}, recordType: ${3:recordType} })",
+      "Oracle url.resolveRecord API. Supply isEditMode, recordId, recordType.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358667680.html",
+        "requiredOptions": [
+          "isEditMode",
+          "recordId",
+          "recordType"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.1"
+      }
+    ],
+    [
+      "resolveScript",
+      "resolveScript({ scriptId: '${1:customscript_example}', deploymentId: '${2:customdeploy_example}', returnExternalUrl: ${3:false} })",
+      "Resolve a deployed script URL.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358672433.html",
+        "requiredOptions": [
+          "deploymentId",
+          "scriptId"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.1"
+      }
+    ],
+    [
+      "resolveTaskLink",
+      "resolveTaskLink({ id: ${1:id} })",
+      "Oracle url.resolveTaskLink API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4358672296.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/util": [
+    [
+      "isArray",
+      "isArray(${1:obj})",
+      "Oracle util.isArray API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434638201.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "each",
+      "each(${1:items}, function (value, key) {\n\t${2:// Handle value}\n})",
+      "Oracle util.each API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4541697371.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "extend",
+      "extend(${1:receiver}, ${2:contributor})",
+      "Oracle util.extend API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4541702994.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isAsyncFunction",
+      "isAsyncFunction(${1:obj})",
+      "Oracle util.isAsyncFunction API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159485198809.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2020.1"
+      }
+    ],
+    [
+      "isBoolean",
+      "isBoolean(${1:obj})",
+      "Oracle util.isBoolean API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434638340.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isDate",
+      "isDate(${1:obj})",
+      "Oracle util.isDate API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434642842.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isFunction",
+      "isFunction(${1:obj})",
+      "Oracle util.isFunction API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434697652.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isNumber",
+      "isNumber(${1:obj})",
+      "Oracle util.isNumber API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434771374.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isObject",
+      "isObject(${1:obj})",
+      "Oracle util.isObject API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434780923.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isRegExp",
+      "isRegExp(${1:obj})",
+      "Oracle util.isRegExp API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434785140.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ],
+    [
+      "isString",
+      "isString(${1:obj})",
+      "Oracle util.isString API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4434798099.html",
+        "requiredOptions": [],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2016.1"
+      }
+    ]
+  ],
+  "N/workbook": [
+    [
+      "create",
+      "create({  })",
+      "Oracle workbook.create API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159008744522.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createAspect",
+      "createAspect({ measure: ${1:measure} })",
+      "Oracle workbook.createAspect API. Supply measure.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159008835819.html",
+        "requiredOptions": [
+          "measure"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createCalculatedMeasure",
+      "createCalculatedMeasure({ expression: ${1:expression} })",
+      "Oracle workbook.createCalculatedMeasure API. Supply expression.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162861792485.html",
+        "requiredOptions": [
+          "expression"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createCategory",
+      "createCategory({ axis: ${1:axis}, root: ${2:root} })",
+      "Oracle workbook.createCategory API. Supply axis, root.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159008867464.html",
+        "requiredOptions": [
+          "axis",
+          "root"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createChart",
+      "createChart({ category: ${1:category}, dataset: ${2:dataset}, datasetLink: ${3:datasetLink}, id: ${4:id}, legend: ${5:legend}, name: ${6:name}, portletName: ${7:portletName}, series: ${8:series}, type: ${9:type} })",
+      "Oracle workbook.createChart API. Supply category, dataset, datasetLink, id, legend, name, portletName, series, type.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159008909052.html",
+        "requiredOptions": [
+          "category",
+          "dataset",
+          "datasetLink",
+          "id",
+          "legend",
+          "name",
+          "portletName",
+          "series",
+          "type"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createChartAxis",
+      "createChartAxis({ title: ${1:title} })",
+      "Oracle workbook.createChartAxis API. Supply title.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159050950689.html",
+        "requiredOptions": [
+          "title"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createColor",
+      "createColor({  })",
+      "Oracle workbook.createColor API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162861840772.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createConditionalFilter",
+      "createConditionalFilter({ filteredNodesSelector: ${1:filteredNodesSelector}, measure: ${2:measure}, otherAxisSelector: ${3:otherAxisSelector}, predicate: ${4:predicate}, row: ${5:row} })",
+      "Oracle workbook.createConditionalFilter API. Supply filteredNodesSelector, measure, otherAxisSelector, predicate, row.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159050988221.html",
+        "requiredOptions": [
+          "filteredNodesSelector",
+          "measure",
+          "otherAxisSelector",
+          "predicate",
+          "row"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createConditionalFormat",
+      "createConditionalFormat({ rules: ${1:rules} })",
+      "Oracle workbook.createConditionalFormat API. Supply rules.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162861895977.html",
+        "requiredOptions": [
+          "rules"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createConditionalFormatRule",
+      "createConditionalFormatRule({ filter: ${1:filter}, style: ${2:style} })",
+      "Oracle workbook.createConditionalFormatRule API. Supply filter, style.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162861919456.html",
+        "requiredOptions": [
+          "filter",
+          "style"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createConstant",
+      "createConstant({ constant: ${1:constant} })",
+      "Oracle workbook.createConstant API. Supply constant.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051033752.html",
+        "requiredOptions": [
+          "constant"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createCurrency",
+      "createCurrency({ amount: ${1:amount}, id: ${2:id} })",
+      "Oracle workbook.createCurrency API. Supply amount, id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0508032752.html",
+        "requiredOptions": [
+          "amount",
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createDataDimension",
+      "createDataDimension({ items: ${1:items} })",
+      "Oracle workbook.createDataDimension API. Supply items.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051058770.html",
+        "requiredOptions": [
+          "items"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createDataDimensionItem",
+      "createDataDimensionItem({ expression: ${1:expression} })",
+      "Oracle workbook.createDataDimensionItem API. Supply expression.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051228123.html",
+        "requiredOptions": [
+          "expression"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createDataMeasure",
+      "createDataMeasure({ aggregation: ${1:aggregation}, expression: ${2:expression} })",
+      "Oracle workbook.createDataMeasure API. Supply aggregation, expression.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162861945807.html",
+        "requiredOptions": [
+          "aggregation",
+          "expression"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createDimensionSelector",
+      "createDimensionSelector({ dimension: ${1:dimension} })",
+      "Oracle workbook.createDimensionSelector API. Supply dimension.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051255354.html",
+        "requiredOptions": [
+          "dimension"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createDuration",
+      "createDuration({ start: ${1:start}, end: ${2:end} })",
+      "Oracle workbook.createDuration API. Supply start, end.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0508035928.html",
+        "requiredOptions": [
+          "start",
+          "end"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createExpression",
+      "createExpression({ functionId: ${1:functionId} })",
+      "Oracle workbook.createExpression API. Supply functionId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051315304.html",
+        "requiredOptions": [
+          "functionId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createFieldContext",
+      "createFieldContext({ name: ${1:name} })",
+      "Oracle workbook.createFieldContext API. Supply name.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051362448.html",
+        "requiredOptions": [
+          "name"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createFontSize",
+      "createFontSize({ size: ${1:size}, unit: ${2:unit} })",
+      "Oracle workbook.createFontSize API. Supply size, unit.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162862018622.html",
+        "requiredOptions": [
+          "size",
+          "unit"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createLegend",
+      "createLegend({ axes: ${1:axes}, root: ${2:root} })",
+      "Oracle workbook.createLegend API. Supply axes, root.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051403498.html",
+        "requiredOptions": [
+          "axes",
+          "root"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createLimitingFilter",
+      "createLimitingFilter({ filteredNodesSelector: ${1:filteredNodesSelector}, limit: ${2:limit}, row: ${3:row}, sortBys: ${4:sortBys} })",
+      "Oracle workbook.createLimitingFilter API. Supply filteredNodesSelector, limit, row, sortBys.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051462385.html",
+        "requiredOptions": [
+          "filteredNodesSelector",
+          "limit",
+          "row",
+          "sortBys"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createMeasureSelector",
+      "createMeasureSelector({ measures: ${1:measures} })",
+      "Oracle workbook.createMeasureSelector API. Supply measures.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162862131381.html",
+        "requiredOptions": [
+          "measures"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createMeasureValueSelector",
+      "createMeasureValueSelector({ columnSelector: ${1:columnSelector}, measureSelector: ${2:measureSelector}, rowSelector: ${3:rowSelector} })",
+      "Oracle workbook.createMeasureValueSelector API. Supply columnSelector, measureSelector, rowSelector.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162862156486.html",
+        "requiredOptions": [
+          "columnSelector",
+          "measureSelector",
+          "rowSelector"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createPathSelector",
+      "createPathSelector({ elements: ${1:elements} })",
+      "Oracle workbook.createPathSelector API. Supply elements.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051588951.html",
+        "requiredOptions": [
+          "elements"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createPivot",
+      "createPivot({ columnAxis: ${1:columnAxis}, dataset: ${2:dataset}, id: ${3:id}, name: ${4:name}, reportStyles: ${5:reportStyles}, rowAxis: ${6:rowAxis} })",
+      "Oracle workbook.createPivot API. Supply columnAxis, dataset, id, name, reportStyles, rowAxis.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051610759.html",
+        "requiredOptions": [
+          "columnAxis",
+          "dataset",
+          "id",
+          "name",
+          "reportStyles",
+          "rowAxis"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createPivotAxis",
+      "createPivotAxis({ root: ${1:root} })",
+      "Oracle workbook.createPivotAxis API. Supply root.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051729422.html",
+        "requiredOptions": [
+          "root"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createPositionPercent",
+      "createPositionPercent({ percentX: ${1:percentX}, percentY: ${2:percentY} })",
+      "Oracle workbook.createPositionPercent API. Supply percentX, percentY.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162862263729.html",
+        "requiredOptions": [
+          "percentX",
+          "percentY"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createPositionUnits",
+      "createPositionUnits({ unit: ${1:unit}, x: ${2:x}, y: ${3:y} })",
+      "Oracle workbook.createPositionUnits API. Supply unit, x, y.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162862280295.html",
+        "requiredOptions": [
+          "unit",
+          "x",
+          "y"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createPositionValues",
+      "createPositionValues({ horizontal: ${1:horizontal}, vertical: ${2:vertical} })",
+      "Oracle workbook.createPositionValues API. Supply horizontal, vertical.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162862321945.html",
+        "requiredOptions": [
+          "horizontal",
+          "vertical"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createRange",
+      "createRange({ end: ${1:end}, start: ${2:start} })",
+      "Oracle workbook.createRange API. Supply end, start.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0519011317.html",
+        "requiredOptions": [
+          "end",
+          "start"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createReportStyle",
+      "createReportStyle({ rules: ${1:rules}, selectors: ${2:selectors} })",
+      "Oracle workbook.createReportStyle API. Supply rules, selectors.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162886027908.html",
+        "requiredOptions": [
+          "rules",
+          "selectors"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createReportStyleRule",
+      "createReportStyleRule({ expression: ${1:expression}, style: ${2:style} })",
+      "Oracle workbook.createReportStyleRule API. Supply expression, style.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162886077520.html",
+        "requiredOptions": [
+          "expression",
+          "style"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createSection",
+      "createSection({ children: ${1:children} })",
+      "Oracle workbook.createSection API. Supply children.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051755688.html",
+        "requiredOptions": [
+          "children"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createSeries",
+      "createSeries({ aspects: ${1:aspects} })",
+      "Oracle workbook.createSeries API. Supply aspects.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051782681.html",
+        "requiredOptions": [
+          "aspects"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createSort",
+      "createSort({  })",
+      "Oracle workbook.createSort API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051806613.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createSortByDataDimensionItem",
+      "createSortByDataDimensionItem({ item: ${1:item}, sort: ${2:sort} })",
+      "Oracle workbook.createSortByDataDimensionItem API. Supply item, sort.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162886098564.html",
+        "requiredOptions": [
+          "item",
+          "sort"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createSortByMeasure",
+      "createSortByMeasure({ measure: ${1:measure}, otherAxisSelector: ${2:otherAxisSelector}, selector: ${3:selector}, sort: ${4:sort} })",
+      "Oracle workbook.createSortByMeasure API. Supply measure, otherAxisSelector, selector, sort.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162886129949.html",
+        "requiredOptions": [
+          "measure",
+          "otherAxisSelector",
+          "selector",
+          "sort"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createSortDefinition",
+      "createSortDefinition({ selector: ${1:selector}, sortBys: ${2:sortBys} })",
+      "Oracle workbook.createSortDefinition API. Supply selector, sortBys.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051836190.html",
+        "requiredOptions": [
+          "selector",
+          "sortBys"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createStyle",
+      "createStyle({  })",
+      "Oracle workbook.createStyle API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162886251569.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "createTable",
+      "createTable({ columns: ${1:columns}, dataset: ${2:dataset}, id: ${3:id}, name: ${4:name} })",
+      "Oracle workbook.createTable API. Supply columns, dataset, id, name.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_163344854839.html",
+        "requiredOptions": [
+          "columns",
+          "dataset",
+          "id",
+          "name"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createTableColumn",
+      "createTableColumn({ conditionalFormats: ${1:conditionalFormats}, datasetColumnAlias: ${2:datasetColumnAlias} })",
+      "Oracle workbook.createTableColumn API. Supply conditionalFormats, datasetColumnAlias.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051899414.html",
+        "requiredOptions": [
+          "conditionalFormats",
+          "datasetColumnAlias"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createTableColumnCondition",
+      "createTableColumnCondition({ operator: ${1:operator} })",
+      "Oracle workbook.createTableColumnCondition API. Supply operator.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0519035345.html",
+        "requiredOptions": [
+          "operator"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.1"
+      }
+    ],
+    [
+      "createTableColumnFilter",
+      "createTableColumnFilter({ operator: ${1:operator} })",
+      "Oracle workbook.createTableColumnFilter API. Supply operator.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159051973321.html",
+        "requiredOptions": [
+          "operator"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "createTranslation",
+      "createTranslation({ key: ${1:key}, collection: ${2:collection} })",
+      "Oracle workbook.createTranslation API. Supply key, collection.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_0519032016.html",
+        "requiredOptions": [
+          "key",
+          "collection"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "list",
+      "list()",
+      "Oracle workbook.list API. Consult the linked reference for optional settings.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159052002745.html",
+        "requiredOptions": [],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ],
+    [
+      "listPaged",
+      "listPaged({ pageSize: ${1:pageSize} })",
+      "Oracle workbook.listPaged API. Supply pageSize.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_162887136327.html",
+        "requiredOptions": [
+          "pageSize"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2021.2"
+      }
+    ],
+    [
+      "loadWorkbook",
+      "loadWorkbook({ id: ${1:id} })",
+      "Oracle workbook.loadWorkbook API. Supply id.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_159052020752.html",
+        "requiredOptions": [
+          "id"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2020.2"
+      }
+    ]
+  ],
+  "N/workflow": [
+    [
+      "initiate",
+      "initiate({ recordId: ${1:recordId}, recordType: ${2:recordType}, workflowId: ${3:workflowId} })",
+      "Oracle workflow.initiate API. Supply recordId, recordType, workflowId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4344303916.html",
+        "requiredOptions": [
+          "recordId",
+          "recordType",
+          "workflowId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "trigger",
+      "trigger({ recordId: ${1:recordId}, recordType: ${2:recordType}, workflowId: ${3:workflowId} })",
+      "Oracle workflow.trigger API. Supply recordId, recordType, workflowId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4344892270.html",
+        "requiredOptions": [
+          "recordId",
+          "recordType",
+          "workflowId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/xml": [
+    [
+      "escape",
+      "escape({ xmlText: ${1:xmlText} })",
+      "Oracle xml.escape API. Supply xmlText.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4392331185.html",
+        "requiredOptions": [
+          "xmlText"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ],
+    [
+      "validate",
+      "validate({ xml: ${1:xml}, xsdFilePathOrId: ${2:xsdFilePathOrId} })",
+      "Oracle xml.validate API. Supply xml, xsdFilePathOrId.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_4345173468.html",
+        "requiredOptions": [
+          "xml",
+          "xsdFilePathOrId"
+        ],
+        "contexts": [
+          "server"
+        ],
+        "since": "2015.2"
+      }
+    ]
+  ],
+  "N/commerce/recordView": [
+    [
+      "viewItems",
+      "viewItems({ ids: ${1:ids}, fields: ${2:fields} })",
+      "Oracle recordView.viewItems API. Supply ids, fields.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1544630258.html",
+        "requiredOptions": [
+          "ids",
+          "fields"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ],
+    [
+      "viewWebsite",
+      "viewWebsite({ id: ${1:id}, fields: ${2:fields} })",
+      "Oracle recordView.viewWebsite API. Supply id, fields.",
+      {
+        "documentationUrl": "https://docs.oracle.com/en/cloud/saas/netsuite/ns-online-help/section_1544630269.html",
+        "requiredOptions": [
+          "id",
+          "fields"
+        ],
+        "contexts": [
+          "client",
+          "server"
+        ],
+        "since": "2019.1"
+      }
+    ]
+  ]
+}

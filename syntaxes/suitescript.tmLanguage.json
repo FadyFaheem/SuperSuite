@@ -1,0 +1,18 @@
+{
+  "scopeName": "suitescript.injection",
+  "injectionSelector": "L:source.js comment.block, L:source.js.jsx comment.block, L:source.js string.quoted, L:source.js.jsx string.quoted",
+  "patterns": [
+    {
+      "name": "storage.type.annotation.suitescript",
+      "match": "@(NApiVersion|NScriptType|NModuleScope|NAmdConfig|NAMDConfig|NName|NDescription)\\b"
+    },
+    {
+      "name": "support.type.scripttype.suitescript",
+      "match": "(?<=@NScriptType[ \\t])\\b(ClientScript|UserEventScript|Suitelet|Restlet|ScheduledScript|MapReduceScript|MassUpdateScript|WorkflowActionScript|Portlet|BundleInstallationScript)\\b"
+    },
+    {
+      "name": "support.module.suitescript",
+      "match": "\\bN/[A-Za-z][A-Za-z0-9]*(?:/[A-Za-z][A-Za-z0-9]*)*\\b"
+    }
+  ]
+}
