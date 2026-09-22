@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SuperSuite read-only MCP connection",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["restlet", "realm", "authType"],
+  "properties": {
+    "restlet": { "type": "string", "format": "uri", "description": "Account-specific URL of a SuperSuite deployment with custscript_supersuite_readonly enabled." },
+    "realm": { "type": "string", "pattern": "^[A-Z0-9]+(?:_[A-Z0-9]+)*$", "description": "NetSuite account ID, including sandbox suffix." },
+    "authType": { "type": "string", "enum": ["tba", "oauth2"] },
+    "timeoutMs": { "type": "integer", "minimum": 1000, "maximum": 300000, "default": 60000 },
+    "maxRetries": { "type": "integer", "minimum": 0, "maximum": 5, "default": 3 }
+  }
+}
