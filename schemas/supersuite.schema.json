@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "SuperSuite Workspace Configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "restlet": {
+      "type": "string",
+      "default": "",
+      "description": "Account-specific HTTPS RESTlet deployment URL. Prefer .config/supersuite.json."
+    },
+    "realm": {
+      "type": "string",
+      "default": "",
+      "description": "NetSuite account ID exactly as shown in Company Information (including sandbox suffix)."
+    },
+    "authType": {
+      "type": "string",
+      "enum": [
+        "tba",
+        "oauth2"
+      ],
+      "default": "tba",
+      "description": "TBA uses HMAC-SHA256. OAuth 2.0 uses an externally obtained access token stored in SecretStorage."
+    },
+    "rootDirectory": {
+      "type": "string",
+      "default": "SuiteScripts",
+      "description": "Remote SuiteScripts folder corresponding to the workspace root."
+    },
+    "batchSize": {
+      "type": "integer",
+      "default": 10,
+      "minimum": 1,
+      "maximum": 20,
+      "description": "Maximum files per sequential transfer request."
+    },
+    "maxBatchBytes": {
+      "type": "integer",
+      "default": 1048576,
+      "minimum": 1024,
+      "maximum": 4194304,
+      "description": "Maximum serialized upload request bytes; oversized files are reported separately."
+    },
+    "timeoutMs": {
+      "type": "integer",
+      "default": 60000,
+      "minimum": 1000,
+      "maximum": 300000,
+      "description": "Request timeout in milliseconds."
+    },
+    "maxRetries": {
+      "type": "integer",
+      "default": 3,
+      "minimum": 0,
+      "maximum": 5,
+      "description": "Bounded retries for transient failures."
+    },
+    "exclude": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [
+        "**/node_modules/**",
+        "**/.*/**",
+        "**/*.vsix",
+        "**/*.pem",
+        "**/*.key"
+      ],
+      "description": "Workspace-relative glob patterns excluded from folder transfers. Hidden paths, node_modules and private keys are always excluded."
+    },
+    "metadataRecordTypes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "default": [],
+      "maxItems": 25,
+      "description": "Record type IDs to inspect when refreshing cached field completions."
+    }
+  }
+}

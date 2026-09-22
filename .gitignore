@@ -1,2 +1,11 @@
 node_modules
 *.vsix
+.npm-cache/
+.vscode-test/
+coverage/
+.config/
+.supersuite-data/
+.env*
+*.pem
+*.key
+/.npm-cache
