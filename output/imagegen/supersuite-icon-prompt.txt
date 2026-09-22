@@ -1,0 +1,9 @@
+Generated using the built-in imagegen tool; exported to img/supersuite-icon.png at 128x128 pixels.
+
+Use case: logo-brand
+Asset type: SuperSuite extension icon for Visual Studio Code, 128x128 pixel final PNG.
+Primary request: Create one polished, original app icon for "SuperSuite", a new NetSuite developer tool for VS Code.
+Subject: A bold, distinctive geometric S monogram whose angular ribbon shape subtly evokes code brackets and connected workflows. Strong silhouette, elegant balanced negative space, a single cohesive symbol.
+Style: Precise, minimal, flat vector-like graphic rendered as a bitmap; modern professional developer-tool identity, confident proportions and extremely crisp edges.
+Composition: Square canvas, centered large monogram on a simple rounded-square tile, generous consistent inset. Design specifically to remain recognizable at 128x128 pixels and at 32px. High contrast, restrained color treatment appropriate to a developer tool. Transparent corners outside the rounded-square tile.
+Constraints: One finished icon only. No full words, no caption, no watermark, no presentation board, no mockup, no surrounding scenery. No thin details, no tiny circuitry, no unnecessary ornamental elements. Do not copy NetSuite or VS Code logos. Output exact 128x128 pixels if supported.

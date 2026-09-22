@@ -5,6 +5,41 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.2.0] - 2026-09-22
+
+- Import and API-starter coverage for every currently supported Oracle module, with documentation links, permissions, and version/context filtering; commerce namespace and retired SSO handling.
+- Read-only stdio MCP server using the official SDK, with native VS Code discovery, dedicated credentials, record inspection, structured searches, and official documentation tools.
+- Curated Oracle documentation catalog with bounded live reads, source links, pagination, cache, cancellation, and host restrictions.
+- RESTlet read-only deployment mode, standard/custom record lookup by internal ID, and bounded AND-filter searches with explicit omissions.
+- SuiteCloud ACP creation, ACP/SuiteApp selection, authentication, interactive imports, validation, configured unit tests, preview, and reviewed deployment through Oracle's CLI.
+- MCP protocol, credential lifecycle, read-only boundary, and SuiteCloud regression tests.
+
+**Deployment:** update the account RESTlet for MCP inspection and create a dedicated deployment with `custscript_supersuite_readonly` enabled. MCP inspects data; the host editor performs local code changes. Live sandbox validation remains required.
+
+## [2.1.0] - 2026-09-22
+
+- Init wizard for an empty repository or existing workspace, including account settings, secure credential prompts, an access setup guide, connection verification, file imports, and optional field-ID discovery.
+- New RESTlet setup through Oracle SuiteCloud CLI, connection to an existing deployment, or a prepared manual deployment project. SuiteCloud authentication remains separate from RESTlet access keys.
+- Scoped SDF bootstrap with unique script/deployment IDs, preview and account review, explicit deployment paths, canonical source checks, and protection against overwriting unrelated projects.
+- Read-only JSON snapshots of selected customers, transactions, vendors, and contacts, including accessible body fields, sublists, and bounded subrecords. Snapshot storage is excluded from Git and File Cabinet transfers.
+- Resumable setup and record exports, cancellation, per-record failure/incomplete markers, and persistent progress checkpoints.
+- Automated tests for initialization, bootstrap filesystem boundaries, CLI task lifecycle, and record export behavior.
+
+**Upgrade:** deploy the bundled RESTlet 2.1 to enable business-record exports. Protocol 2 file transfers remain supported. Init does not create NetSuite integrations, roles, or access keys; follow `docs/ACCESS_SETUP.md`. JSON snapshots are not a complete account backup or restore format. Live account deployment and import checks remain part of the sandbox release checklist.
+
+## [2.0.0] - 2026-09-22
+
+- New `fadyfaheem.supersuite` identity, current VS Code APIs and multi-root support.
+- Sequential count/byte-limited transfers, paginated pulls, cancellation, transient retries, per-file summaries and retry-failed command.
+- Protocol-2 RESTlet with scoped paths, governance limits, documented file overwrite/staging lifecycle, and body-field metadata discovery.
+- SecretStorage credentials, HMAC-SHA256 TBA, externally obtained OAuth 2.0 bearer tokens, and legacy TBA migration. NLAuth removed.
+- SuiteScript 2.0/2.1 templates, snippets, JSDoc header builder/completions, syntax injection, atomic AMD imports and API call starters.
+- Account field metadata cache with explicit refresh and optional refresh on activation.
+- Workspace setup buttons and `.config/supersuite.json` schema.
+- Automated lint/unit/extension-host checks and tested VSIX publication on matching version tags using Marketplace OIDC.
+
+**Migration:** install the new extension identity, disable NetSuite Upload, configure credentials, and deploy the bundled RESTlet before transferring files. See README.md and netSuiteRestlet/README.md. OAuth2 token acquisition/refresh is external in this release.
+
 ## [1.2.4] - 2019-12-26
 
 - Closes Issue #31 "Add Netsuite dependency command doesn't work properly" https://github.com/netsuite-upload-org/netsuite-upload/issues/31
