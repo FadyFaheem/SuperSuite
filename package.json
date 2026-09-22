@@ -1,214 +1,680 @@
 {
-  "name": "netsuite-upload",
-  "displayName": "NetSuite Upload",
-  "description": "Upload and download NetSuite SuiteScript files and folders.",
-  "version": "1.2.4",
-  "publisher": "nsupload-org",
+  "name": "supersuite",
+  "displayName": "SuperSuite",
+  "description": "SuiteScript editing, guided NetSuite setup, read-only MCP account tools, and SuiteCloud project workflows.",
+  "version": "2.2.0",
+  "publisher": "fadyfaheem",
+  "license": "MIT",
   "engines": {
-    "vscode": "^1.22.2"
+    "vscode": "^1.96.0"
   },
   "categories": [
+    "Programming Languages",
+    "Snippets",
     "Other"
   ],
-  "homepage": "https://github.com/netsuite-upload-org/netsuite-upload",
+  "homepage": "https://github.com/FadyFaheem/SuperSuite",
   "repository": {
     "type": "git",
-    "url": "https://github.com/netsuite-upload-org/netsuite-upload"
+    "url": "https://github.com/FadyFaheem/SuperSuite.git"
   },
-  "icon": "img/icon.png",
+  "bugs": {
+    "url": "https://github.com/FadyFaheem/SuperSuite/issues"
+  },
+  "icon": "img/supersuite-icon.png",
   "keywords": [
     "netsuite",
-    "netsuite upload",
-    "netsuite download",
-    "netsuite sync"
+    "suitescript",
+    "supersuite",
+    "file cabinet",
+    "snippets"
+  ],
+  "main": "./extension.js",
+  "extensionKind": [
+    "workspace"
   ],
   "activationEvents": [
-    "onCommand:netsuite-upload.downloadFile",
-    "onCommand:netsuite-upload.uploadFile",
-    "onCommand:netsuite-upload.deleteFile",
-    "onCommand:netsuite-upload.previewFile",
-    "onCommand:netsuite-upload.uploadFolder",
-    "onCommand:netsuite-upload.downloadFolder",
-    "onCommand:netsuite-upload.addCustomDependency",
-    "onCommand:netsuite-upload.addNSDependency",
-    "onCommand:netsuite-upload.getRestletVersion"
+    "onLanguage:javascript",
+    "onLanguage:javascriptreact",
+    "workspaceContains:.config/supersuite.json",
+    "onStartupFinished"
   ],
-  "main": "./extension",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": "limited",
+      "description": "Editing assistance is available; configuration, credentials and NetSuite transfers require a trusted workspace."
+    },
+    "virtualWorkspaces": {
+      "supported": false,
+      "description": "NetSuite file transfers need filesystem access."
+    }
+  },
   "contributes": {
-    "configuration": {
-      "type": "object",
-      "title": "NetSuite Connection Configuration",
-      "properties": {
-        "netSuiteUpload.authentication": {
-          "type": "string",
-          "description": "NLAuth-style authentication header. To use OAuth instead, leave this unset."
-        },
-        "netSuiteUpload.restlet": {
-          "type": "string",
-          "description": "Restlet URL. After you deploy the vscodeExtensionRestlet.js, set this to the Script Deployment External URL."
-        },
-        "netSuiteUpload.tempFolder": {
-          "type": "string",
-          "description": "Temporary folder (e.g. C:\\temp or /tmp). Used during diff comparisons between local and remote files."
-        },
-        "netSuiteUpload.netSuiteKey": {
-          "type": "string",
-          "description": "OAuth NetSuite Token ID"
-        },
-        "netSuiteUpload.netSuiteSecret": {
-          "type": "string",
-          "description": "OAuth NetSuite Token Secret"
-        },
-        "netSuiteUpload.consumerToken": {
-          "type": "string",
-          "description": "OAuth NetSuite Consumer Key"
-        },
-        "netSuiteUpload.consumerSecret": {
-          "type": "string",
-          "description": "OAuth NetSuite Consumer Secret"
-        },
-        "netSuiteUpload.realm": {
-          "type": "string",
-          "description": "Your NetSuite numeric account number (used for OAuth 'realm' parameter)"
-        },
-        "netSuiteUpload.rootDirectory": {
-          "type": "string",
-          "description": "NetSuite File Cabinet SuiteScripts sub-folder path to upload to. Defaults to 'SuiteScripts' if not set."
+    "taskDefinitions": [
+      {
+        "type": "supersuite-setup",
+        "required": [
+          "supersuiteSetupId"
+        ],
+        "properties": {
+          "supersuiteSetupId": {
+            "type": "string",
+            "description": "Identifies a SuiteCloud task owned by the SuperSuite setup wizard."
+          }
+        }
+      },
+      {
+        "type": "supersuite-suitecloud",
+        "required": [
+          "supersuiteTaskId"
+        ],
+        "properties": {
+          "supersuiteTaskId": {
+            "type": "string",
+            "description": "Identifies a SuperSuite SuiteCloud project task."
+          }
         }
       }
-    },
+    ],
+    "configuration": [
+      {
+        "title": "SuperSuite",
+        "properties": {
+          "supersuite.restlet": {
+            "type": "string",
+            "default": "",
+            "description": "Account-specific HTTPS RESTlet deployment URL. Prefer .config/supersuite.json.",
+            "scope": "resource"
+          },
+          "supersuite.realm": {
+            "type": "string",
+            "default": "",
+            "description": "NetSuite account ID exactly as shown in Company Information (including sandbox suffix).",
+            "scope": "resource"
+          },
+          "supersuite.authType": {
+            "type": "string",
+            "enum": [
+              "tba",
+              "oauth2"
+            ],
+            "default": "tba",
+            "description": "TBA uses HMAC-SHA256. OAuth 2.0 uses an externally obtained access token stored in SecretStorage.",
+            "scope": "resource"
+          },
+          "supersuite.rootDirectory": {
+            "type": "string",
+            "default": "SuiteScripts",
+            "description": "Remote SuiteScripts folder corresponding to the workspace root.",
+            "scope": "resource"
+          },
+          "supersuite.batchSize": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1,
+            "maximum": 20,
+            "description": "Maximum files per sequential transfer request.",
+            "scope": "resource"
+          },
+          "supersuite.maxBatchBytes": {
+            "type": "integer",
+            "default": 1048576,
+            "minimum": 1024,
+            "maximum": 4194304,
+            "description": "Maximum serialized upload request bytes; oversized files are reported separately.",
+            "scope": "resource"
+          },
+          "supersuite.timeoutMs": {
+            "type": "integer",
+            "default": 60000,
+            "minimum": 1000,
+            "maximum": 300000,
+            "description": "Request timeout in milliseconds.",
+            "scope": "resource"
+          },
+          "supersuite.maxRetries": {
+            "type": "integer",
+            "default": 3,
+            "minimum": 0,
+            "maximum": 5,
+            "description": "Bounded retries for transient failures.",
+            "scope": "resource"
+          },
+          "supersuite.exclude": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [
+              "**/node_modules/**",
+              "**/.*/**",
+              "**/*.vsix",
+              "**/*.pem",
+              "**/*.key"
+            ],
+            "description": "Workspace-relative glob patterns excluded from folder transfers. Hidden paths, node_modules and private keys are always excluded.",
+            "scope": "resource"
+          },
+          "supersuite.metadataRecordTypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "default": [],
+            "maxItems": 25,
+            "description": "Record type IDs to inspect when refreshing cached field completions.",
+            "scope": "resource"
+          },
+          "supersuite.autoRefreshMetadata": {
+            "type": "boolean",
+            "default": false,
+            "description": "Refresh configured record metadata on activation in a trusted workspace.",
+            "scope": "resource"
+          },
+          "supersuite.editorCompletions": {
+            "type": "boolean",
+            "default": true,
+            "description": "Enable SuiteScript module, function, annotation and cached field completions.",
+            "scope": "resource"
+          }
+        }
+      },
+      {
+        "title": "SuperSuite Legacy Settings",
+        "properties": {
+          "netSuiteUpload.authentication": {
+            "type": "string",
+            "description": "NLAuth-style authentication header. To use OAuth instead, leave this unset.",
+            "deprecationMessage": "NLAuth is no longer supported. Use SuperSuite: Configure Credentials."
+          },
+          "netSuiteUpload.restlet": {
+            "type": "string",
+            "description": "Restlet URL. After you deploy the vscodeExtensionRestlet.js, set this to the Script Deployment External URL.",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.tempFolder": {
+            "type": "string",
+            "description": "Temporary folder (e.g. C:\\temp or /tmp). Used during diff comparisons between local and remote files.",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.netSuiteKey": {
+            "type": "string",
+            "description": "OAuth NetSuite Token ID",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.netSuiteSecret": {
+            "type": "string",
+            "description": "OAuth NetSuite Token Secret",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.consumerToken": {
+            "type": "string",
+            "description": "OAuth NetSuite Consumer Key",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.consumerSecret": {
+            "type": "string",
+            "description": "OAuth NetSuite Consumer Secret",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.realm": {
+            "type": "string",
+            "description": "Your NetSuite numeric account number (used for OAuth 'realm' parameter)",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          },
+          "netSuiteUpload.rootDirectory": {
+            "type": "string",
+            "description": "NetSuite File Cabinet SuiteScripts sub-folder path to upload to. Defaults to 'SuiteScripts' if not set.",
+            "deprecationMessage": "Use .config/supersuite.json and SuperSuite: Migrate Legacy Credentials."
+          }
+        }
+      }
+    ],
     "commands": [
       {
+        "command": "supersuite.mcp.configure",
+        "title": "Configure Read-Only MCP",
+        "icon": "$(plug)",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.mcp.disable",
+        "title": "Disable Read-Only MCP",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.mcp.guide",
+        "title": "Open MCP Guide",
+        "category": "SuperSuite"
+      },
+      {
+        "command": "supersuite.suitecloud.create",
+        "title": "SuiteCloud: Create Account Customization Project",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.selectProject",
+        "title": "SuiteCloud: Select Project",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.authenticate",
+        "title": "SuiteCloud: Authenticate Project",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.validate",
+        "title": "SuiteCloud: Validate Project",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.preview",
+        "title": "SuiteCloud: Preview Deployment",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.deploy",
+        "title": "SuiteCloud: Deploy Project",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.importObjects",
+        "title": "SuiteCloud: Import Objects",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.importFiles",
+        "title": "SuiteCloud: Import Files",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.test",
+        "title": "SuiteCloud: Run Unit Tests",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.suitecloud.guide",
+        "title": "SuiteCloud: Open Guide",
+        "category": "SuperSuite"
+      },
+      {
+        "command": "supersuite.accessSetupGuide",
+        "title": "Open Access Key Setup Guide",
+        "category": "SuperSuite",
+        "icon": "$(book)"
+      },
+      {
+        "command": "supersuite.exportRecords",
+        "title": "Export Business Records",
+        "category": "SuperSuite",
+        "icon": "$(database)",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.initialize",
+        "title": "Init: Set Up and Import",
+        "category": "SuperSuite",
+        "icon": "$(rocket)",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.configure",
+        "title": "Configure Workspace",
+        "category": "SuperSuite",
+        "icon": "$(gear)",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.configureCredentials",
+        "title": "Configure Credentials",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.clearCredentials",
+        "title": "Clear Credentials",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.migrateCredentials",
+        "title": "Migrate Legacy Credentials",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.downloadFile",
+        "title": "Pull File from NetSuite",
+        "category": "SuperSuite",
+        "icon": "$(cloud-download)",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.uploadFile",
+        "title": "Push File to NetSuite",
+        "category": "SuperSuite",
+        "icon": "$(cloud-upload)",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.previewFile",
+        "title": "Compare File with NetSuite",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.deleteFile",
+        "title": "Delete File in NetSuite",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.uploadFolder",
+        "title": "Push Folder to NetSuite",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.downloadFolder",
+        "title": "Pull Folder from NetSuite",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.retryFailed",
+        "title": "Retry Failed Files",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.getRestletVersion",
+        "title": "Test Connection",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.refreshMetadata",
+        "title": "Refresh Account Field IDs",
+        "category": "SuperSuite",
+        "enablement": "isWorkspaceTrusted"
+      },
+      {
+        "command": "supersuite.addModule",
+        "title": "Add NetSuite Module",
+        "category": "SuperSuite"
+      },
+      {
+        "command": "supersuite.addCustomModule",
+        "title": "Add Custom Module",
+        "category": "SuperSuite"
+      },
+      {
+        "command": "supersuite.insertHeader",
+        "title": "Build SuiteScript Header",
+        "category": "SuperSuite"
+      },
+      {
+        "command": "supersuite.createScript",
+        "title": "Create SuiteScript",
+        "category": "SuperSuite"
+      },
+      {
+        "command": "supersuite.showOutput",
+        "title": "Show Output",
+        "category": "SuperSuite"
+      },
+      {
         "command": "netsuite-upload.downloadFile",
-        "title": "Pull file from NetSuite",
-        "category": "NetSuite"
+        "title": "Pull file from NetSuite (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.previewFile",
-        "title": "Compare file with NetSuite",
-        "category": "NetSuite"
+        "title": "Compare file with NetSuite (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.uploadFile",
-        "title": "Push file to NetSuite",
-        "category": "NetSuite"
+        "title": "Push file to NetSuite (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.deleteFile",
-        "title": "Delete file in NetSuite",
-        "category": "NetSuite"
+        "title": "Delete file in NetSuite (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.uploadFolder",
-        "title": "Push folder to NetSuite",
-        "category": "NetSuite"
+        "title": "Push folder to NetSuite (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.downloadFolder",
-        "title": "Pull folder from NetSuite",
-        "category": "NetSuite"
+        "title": "Pull folder from NetSuite (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.addCustomDependency",
-        "title": "Add Custom Dependency",
-        "category": "NetSuite"
+        "title": "Add Custom Dependency (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.addNSDependency",
-        "title": "Add NetSuite Dependency",
-        "category": "NetSuite"
+        "title": "Add NetSuite Dependency (Legacy Alias)",
+        "category": "SuperSuite"
       },
       {
         "command": "netsuite-upload.getRestletVersion",
-        "title": "Get RESTlet version",
-        "category": "NetSuite"
+        "title": "Get RESTlet version (Legacy Alias)",
+        "category": "SuperSuite"
       }
     ],
     "menus": {
-      "editor/context": [
+      "commandPalette": [
         {
           "command": "netsuite-upload.downloadFile",
-          "group": "netsuite"
-        },
-        {
-          "command": "netsuite-upload.uploadFile",
-          "group": "netsuite"
+          "when": "false"
         },
         {
           "command": "netsuite-upload.previewFile",
-          "group": "netsuite"
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.uploadFile",
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.deleteFile",
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.uploadFolder",
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.downloadFolder",
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.addCustomDependency",
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.addNSDependency",
+          "when": "false"
+        },
+        {
+          "command": "netsuite-upload.getRestletVersion",
+          "when": "false"
+        }
+      ],
+      "editor/context": [
+        {
+          "command": "supersuite.downloadFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted",
+          "group": "supersuite"
+        },
+        {
+          "command": "supersuite.uploadFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted",
+          "group": "supersuite"
+        },
+        {
+          "command": "supersuite.previewFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted",
+          "group": "supersuite"
         }
       ],
       "explorer/context": [
         {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.downloadFile",
-          "group": "netsuite"
+          "command": "supersuite.downloadFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted && !explorerResourceIsFolder",
+          "group": "supersuite"
         },
         {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.previewFile",
-          "group": "netsuite"
+          "command": "supersuite.uploadFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted && !explorerResourceIsFolder",
+          "group": "supersuite"
         },
         {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.uploadFile",
-          "group": "netsuite"
+          "command": "supersuite.previewFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted && !explorerResourceIsFolder",
+          "group": "supersuite"
         },
         {
-          "when": "!explorerResourceIsFolder",
-          "command": "netsuite-upload.deleteFile",
-          "group": "netsuite"
+          "command": "supersuite.deleteFile",
+          "when": "resourceScheme == file && isWorkspaceTrusted && !explorerResourceIsFolder",
+          "group": "supersuite"
         },
         {
-          "when": "explorerResourceIsFolder",
-          "command": "netsuite-upload.uploadFolder",
-          "group": "netsuite"
+          "command": "supersuite.uploadFolder",
+          "when": "resourceScheme == file && isWorkspaceTrusted && explorerResourceIsFolder",
+          "group": "supersuite"
         },
         {
-          "when": "explorerResourceIsFolder",
-          "command": "netsuite-upload.downloadFolder",
-          "group": "netsuite"
+          "command": "supersuite.downloadFolder",
+          "when": "resourceScheme == file && isWorkspaceTrusted && explorerResourceIsFolder",
+          "group": "supersuite"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "supersuite.initialize",
+          "when": "view == supersuite.workspace",
+          "group": "navigation@0"
+        },
+        {
+          "command": "supersuite.configure",
+          "when": "view == supersuite.workspace",
+          "group": "navigation"
+        },
+        {
+          "command": "supersuite.refreshMetadata",
+          "when": "view == supersuite.workspace",
+          "group": "supersuite"
         }
       ]
     },
     "keybindings": [
       {
-        "command": "netsuite-upload.downloadFile",
-        "key": "ctrl+n ctrl+d"
+        "command": "supersuite.downloadFile",
+        "key": "ctrl+n ctrl+d",
+        "when": "editorTextFocus && isWorkspaceTrusted"
       },
       {
-        "command": "netsuite-upload.uploadFile",
-        "key": "ctrl+n ctrl+u"
+        "command": "supersuite.uploadFile",
+        "key": "ctrl+n ctrl+u",
+        "when": "editorTextFocus && isWorkspaceTrusted"
       }
     ],
     "snippets": [
       {
         "language": "javascript",
         "path": "./snippets/snippets.json"
+      },
+      {
+        "language": "javascriptreact",
+        "path": "./snippets/snippets.json"
+      }
+    ],
+    "grammars": [
+      {
+        "scopeName": "suitescript.injection",
+        "path": "./syntaxes/suitescript.tmLanguage.json",
+        "injectTo": [
+          "source.js",
+          "source.js.jsx"
+        ]
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "supersuite.workspace",
+          "name": "SuperSuite",
+          "icon": "img/supersuite-icon.png"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "supersuite.workspace",
+        "contents": "Start with an empty repository or resume setup. The wizard walks you through your account, access keys, RESTlet deployment, and file/record imports.\n[Init / Resume Setup](command:supersuite.initialize)\n[Access Key Setup Guide](command:supersuite.accessSetupGuide)\n[Configure Workspace](command:supersuite.configure)\n[Configure Credentials](command:supersuite.configureCredentials)\n[Test Connection](command:supersuite.getRestletVersion)\n[Export Business Records](command:supersuite.exportRecords)\n[Refresh Field IDs](command:supersuite.refreshMetadata)\n[Configure Read-Only MCP](command:supersuite.mcp.configure)\n[SuiteCloud: Create Project](command:supersuite.suitecloud.create)\n[SuiteCloud: Select Project](command:supersuite.suitecloud.selectProject)\n[SuiteCloud Guide](command:supersuite.suitecloud.guide)",
+        "when": "isWorkspaceTrusted"
+      },
+      {
+        "view": "supersuite.workspace",
+        "contents": "Trust this workspace to configure SuperSuite and connect to NetSuite.",
+        "when": "!isWorkspaceTrusted"
+      }
+    ],
+    "jsonValidation": [
+      {
+        "fileMatch": "**/.config/supersuite.json",
+        "url": "./schemas/supersuite.schema.json"
+      },
+      {
+        "fileMatch": "**/.config/supersuite-mcp.json",
+        "url": "./schemas/supersuite-mcp.schema.json"
+      }
+    ],
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "supersuite.readonly",
+        "label": "SuperSuite read-only NetSuite and documentation"
       }
     ]
   },
   "scripts": {
-    "postinstall": "node ./node_modules/vscode/bin/install"
+    "lint": "eslint .",
+    "test": "node --test test/*.test.js",
+    "test:integration": "node test/runIntegration.js",
+    "check": "npm run lint && npm test",
+    "package": "vsce package --out supersuite.vsix",
+    "vscode:prepublish": "npm run check",
+    "mcp:start": "node mcp/server.js"
   },
   "devDependencies": {
-    "@types/mocha": "^5.2.7",
-    "@types/node": "^12.6.8",
-    "eslint": "^6.1.0",
-    "mocha": "^6.2.0",
-    "typescript": "^3.5.3",
-    "vscode": "^1.1.35",
-    "webpack": "^4.38.0",
-    "webpack-cli": "^3.3.6"
+    "@modelcontextprotocol/client": "^2.0.0",
+    "@vscode/test-electron": "^3.1.0",
+    "@vscode/vsce": "^4.0.0",
+    "eslint": "^10.0.0"
   },
   "dependencies": {
-    "compare-versions": "^3.5.0",
-    "crypto": "1.0.1",
-    "esprima": "4.0.1",
-    "estraverse": "4.2.0",
-    "oauth-1.0a": "^2.2.6",
-    "superagent": "^5.1.0",
-    "underscore": "1.9.1"
+    "@modelcontextprotocol/server": "^2.0.0",
+    "acorn": "^8.18.0",
+    "picomatch": "^4.0.7",
+    "zod": "^4.6.5"
   }
 }
