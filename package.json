@@ -673,7 +673,7 @@
   },
   "dependencies": {
     "@modelcontextprotocol/server": "^2.0.0",
-    "acorn": "^8.18.0",
+    "acorn": "^8.19.0",
     "picomatch": "^4.0.7",
     "zod": "^4.6.5"
   }
