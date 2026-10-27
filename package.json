@@ -672,7 +672,7 @@
     "eslint": "^10.0.0"
   },
   "dependencies": {
-    "@modelcontextprotocol/server": "^2.0.0",
+    "@modelcontextprotocol/server": "^2.4.0",
     "acorn": "^8.18.0",
     "picomatch": "^4.0.7",
     "zod": "^4.6.5"
